@@ -3,6 +3,7 @@ class A320_Neo_MFD extends BaseAirliners {
         super();
         this.initDuration = 11000;
         this.showFlightPlan = true;
+        this.created = false;
     }
     get templateID() {
         return "A320_Neo_MFD";
@@ -17,6 +18,7 @@ class A320_Neo_MFD extends BaseAirliners {
                 new A320_Neo_MFD_MainPage()
             ]),
         ];
+        this.created = true;
     }
     disconnectedCallback() {
     }
@@ -30,6 +32,12 @@ class A320_Neo_MFD extends BaseAirliners {
                 this.currentPageGroupIndex = 0;
                 this.getCurrentPageGroup().pageIndex = 0;
                 break;
+            case "GPS_PRIMARY_CLR":
+                if (this.created) {
+                    this.getCurrentPageGroup().pages[0].gpsPrimaryClear = true;
+                }
+                break;
+
         }
     }
     onUpdate(_deltaTime) {
@@ -72,6 +80,7 @@ class A320_Neo_MFD_MainPage extends NavSystemPage {
         this.chronoAcc = 0;
         this.chronoStart = 0;
         this.poweredDuringPreviousUpdate = false;
+        this.gpsPrimaryClear = false;
     }
     init() {
         super.init();
@@ -129,6 +138,11 @@ class A320_Neo_MFD_MainPage extends NavSystemPage {
             this.screenIndex == 1 ? 89 : 91,
             document.querySelector("#SelfTestDiv")
         );
+
+        //ADIRS
+        this.gpsPrimary = document.querySelector("#GPSPrimary");
+        this.gpsPrimaryLost = document.querySelector("#GPSPrimaryLost");
+        this.rect_gpsPrimary = document.querySelector("#rect_GPSPrimary");
     }
     displayChronoTime() {
         const totalSeconds = this.getTotalChronoSeconds();
@@ -164,6 +178,11 @@ class A320_Neo_MFD_MainPage extends NavSystemPage {
         return false;
     }
 
+    sendCduGpsPrimary() {
+        this.gpsPrimaryClear = false;
+        SimVar.SetSimVarValue("H:A320_Neo_CDU_GPS_PRIMARY_CLR", "Bool", true); // GPS PRIMARY >> CDU
+    }
+
     onUpdate() {
         let deltaTime = this.getDeltaTime();
         super.onUpdate(deltaTime);
@@ -187,40 +206,37 @@ class A320_Neo_MFD_MainPage extends NavSystemPage {
 
         const ADIRSState = SimVar.GetSimVarValue("L:A320_Neo_ADIRS_STATE", "Enum");
 
-        if (ADIRSState != 2) {
-            document.querySelector("#GPSPrimary").setAttribute("visibility", "hidden");
-            document.querySelector("#GPSPrimaryLost").setAttribute("visibility", "visible");
-            document.querySelector("#rect_GPSPrimary").setAttribute("visibility", "visible");
+        if (ADIRSState === 2) {
+            this.gpsPrimaryLost.setAttribute("visibility", "hidden");
 
-            //Simvar to find out if the GPS messages have been already acknowledged in the FCU by clicking the CLR button.
-            var GPSPrimAck = SimVar.GetSimVarValue("L:GPSPrimaryAcknowledged", "bool");
-            //Getting the current GPS value to compare whether if the GPS is lost in the middle (After Aligns)
-            //OR The aircraft is started from the very first time.
-            var GPSPrimaryCurrVal = SimVar.GetSimVarValue("L:GPSPrimary", "bool");
-            if (GPSPrimaryCurrVal && GPSPrimAck) { //Resetting the acknowledged flag, if the GPS flag changed in the middle.
-                SimVar.SetSimVarValue("L:GPSPrimaryAcknowledged", "bool", 0);
-            }
-            SimVar.SetSimVarValue("L:GPSPrimary", "bool", 0);
-        } else {
-            document.querySelector("#GPSPrimaryLost").setAttribute("visibility", "hidden");
-            var GPSPrimAck = SimVar.GetSimVarValue("L:GPSPrimaryAcknowledged", "bool");
-            var GPSPrimaryCurrVal = SimVar.GetSimVarValue("L:GPSPrimary", "bool");
-            if (!GPSPrimaryCurrVal && GPSPrimAck) { //Resetting the acknowledged flag, if the GPS flag changed in the middle.
-                SimVar.SetSimVarValue("L:GPSPrimaryAcknowledged", "bool", 0);
+            if (!SimVar.GetSimVarValue("L:GPSPrimary", "bool") && this.gpsPrimaryClear) {
+                this.sendCduGpsPrimary();
             }
 
-            //Clearing the ND message if the message displayed in the FMC is acknowledged by pressing the CLR button.
-            if (!GPSPrimAck) {
-                document.querySelector("#GPSPrimary").setAttribute("visibility", "visible");
-                document.querySelector("#rect_GPSPrimary").setAttribute("visibility", "visible");
+            if (this.gpsPrimaryClear) {
+                // Hide ND GPS PRIMARY
+                this.gpsPrimary.setAttribute("visibility", "hidden");
+                this.rect_gpsPrimary.setAttribute("visibility", "hidden");
             } else {
-                document.querySelector("#rect_GPSPrimary").setAttribute("visibility", "hidden");
-                document.querySelector("#GPSPrimary").setAttribute("visibility", "hidden");
+                // Show ND GPS PRIMARY
+                this.gpsPrimary.setAttribute("visibility", "visible");
+                this.rect_gpsPrimary.setAttribute("visibility", "visible");
             }
             SimVar.SetSimVarValue("L:GPSPrimary", "bool", 1);
+        } else {
+            // Show ND GPS PRIMARY LOST
+            this.gpsPrimary.setAttribute("visibility", "hidden");
+            this.gpsPrimaryLost.setAttribute("visibility", "visible");
+            this.rect_gpsPrimary.setAttribute("visibility", "visible");
+
+            if (SimVar.GetSimVarValue("L:GPSPrimary", "bool") && this.gpsPrimaryClear) {
+                // If GPS changes from OFF to ON and MCDU/ND [GPS PRIMARY] was cleared
+                this.sendCduGpsPrimary();
+            }
+            SimVar.SetSimVarValue("L:GPSPrimary", "bool", 0);
         }
 
-        if (ADIRSState != 2 && !this.map.planMode && this.modeChangeTimer == -1) {
+        if (ADIRSState !== 2 && !this.map.planMode && this.modeChangeTimer === -1) {
             document.querySelector("#MapFail").setAttribute("visibility", "visible");
             document.querySelector("#Map").setAttribute("style", "display:none");
         } else {

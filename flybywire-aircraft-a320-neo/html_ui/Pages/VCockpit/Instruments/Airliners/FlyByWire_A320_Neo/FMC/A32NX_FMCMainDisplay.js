@@ -188,6 +188,9 @@ class FMCMainDisplay extends BaseAirliners {
         this.managedSpeedDescendMach = .78;
         // this.managedSpeedDescendMachIsPilotEntered = false;
         this.cruiseFlightLevelTimeOut = undefined;
+
+        this._gpsAck = false;
+        this._gpsDisplayed = false;
     }
 
     Init() {
@@ -961,24 +964,23 @@ class FMCMainDisplay extends BaseAirliners {
     }
 
     updateGPSMessage() {
-        if (!SimVar.GetSimVarValue("L:GPSPrimaryAcknowledged", "Bool")) {
+        if (!this._gpsAck) {
             if (SimVar.GetSimVarValue("L:GPSPrimary", "Bool")) {
-                SimVar.SetSimVarValue("L:A32NX_GPS_PRIMARY_LOST_MSG", "Bool", 0);
-                if (!SimVar.GetSimVarValue("L:GPSPrimaryMessageDisplayed", "Bool")) {
-                    SimVar.SetSimVarValue("L:GPSPrimaryMessageDisplayed", "Bool", 1);
+                this._gpsLostDisplayed = false;
+                if (!this._gpsDisplayed) {
+                    this._gpsDisplayed = true;
                     this.tryRemoveMessage(NXSystemMessages.gpsPrimaryLost.text);
-                    this.addNewMessage(NXSystemMessages.gpsPrimary, () => {
-                        SimVar.SetSimVarValue("L:GPSPrimaryAcknowledged", "Bool", 1);
+                    this.addNewMessage(NXSystemMessages.gpsPrimary, undefined, () => {
+                        this._gpsAck = true;
+                        SimVar.SetSimVarValue("H:A320_Neo_MFD_GPS_PRIMARY_CLR", "Bool", true); // ON CLR -> CLR ND [GPS PRIMARY]
                     });
                 }
             } else {
-                SimVar.SetSimVarValue("L:GPSPrimaryMessageDisplayed", "Bool", 0);
-                if (!SimVar.GetSimVarValue("L:A32NX_GPS_PRIMARY_LOST_MSG", "Bool")) {
-                    SimVar.SetSimVarValue("L:A32NX_GPS_PRIMARY_LOST_MSG", "Bool", 1);
+                this._gpsDisplayed = false;
+                if (!this._gpsLostDisplayed) {
+                    this._gpsLostDisplayed = true;
                     this.tryRemoveMessage(NXSystemMessages.gpsPrimary.text);
-                    this.addNewMessage(NXSystemMessages.gpsPrimaryLost, () => {
-                        SimVar.SetSimVarValue("L:A32NX_GPS_PRIMARY_LOST_MSG", "Bool", 1);
-                    });
+                    this.addNewMessage(NXSystemMessages.gpsPrimaryLost);
                 }
             }
         }
@@ -1067,48 +1069,68 @@ class FMCMainDisplay extends BaseAirliners {
     }
 
     onEvent(_event) {
-        if (_event === "MODE_SELECTED_HEADING") {
-            SimVar.SetSimVarValue("L:A32NX_GOAROUND_HDG_MODE", "bool", 1);
-            SimVar.SetSimVarValue("L:A32NX_GOAROUND_NAV_MODE", "bool", 0);
-            if (Simplane.getAutoPilotHeadingManaged()) {
+        switch (_event) {
+            case "MODE_SELECTED_HEADING":
+                SimVar.SetSimVarValue("L:A32NX_GOAROUND_HDG_MODE", "bool", 1);
+                SimVar.SetSimVarValue("L:A32NX_GOAROUND_NAV_MODE", "bool", 0);
+                if (Simplane.getAutoPilotHeadingManaged()) {
+                    if (SimVar.GetSimVarValue("L:A320_FCU_SHOW_SELECTED_HEADING", "number") === 0) {
+                        const currentHeading = Simplane.getHeadingMagnetic();
+                        Coherent.call("HEADING_BUG_SET", 1, currentHeading);
+                    }
+                }
+                this._onModeSelectedHeading();
+                break;
+            case "MODE_MANAGED_HEADING":
+                SimVar.SetSimVarValue("L:A32NX_GOAROUND_HDG_MODE", "bool", 0);
+                SimVar.SetSimVarValue("L:A32NX_GOAROUND_NAV_MODE", "bool", 1);
+                if (this.flightPlanManager.getWaypointsCount() === 0) {
+                    return;
+                }
+                this._onModeManagedHeading();
+                break;
+            case "MODE_SELECTED_ALTITUDE":
+                this.flightPhaseManager.handleFcuAltKnobPushPull();
+                this._onModeSelectedAltitude();
+                this._onStepClimbDescent();
+                break;
+            case "MODE_MANAGED_ALTITUDE":
+                this.flightPhaseManager.handleFcuAltKnobPushPull();
+                this._onModeManagedAltitude();
+                this._onStepClimbDescent();
+                break;
+            case "AP_DEC_ALT":
+            case "AP_INC_ALT":
+                this.flightPhaseManager.handleFcuAltKnobTurn();
+                this._onTrySetCruiseFlightLevel();
+                break;
+            case "AP_DEC_HEADING":
+            case "AP_INC_HEADING":
                 if (SimVar.GetSimVarValue("L:A320_FCU_SHOW_SELECTED_HEADING", "number") === 0) {
                     const currentHeading = Simplane.getHeadingMagnetic();
                     Coherent.call("HEADING_BUG_SET", 1, currentHeading);
                 }
-            }
-            this._onModeSelectedHeading();
-        }
-        if (_event === "MODE_MANAGED_HEADING") {
-            SimVar.SetSimVarValue("L:A32NX_GOAROUND_HDG_MODE", "bool", 0);
-            SimVar.SetSimVarValue("L:A32NX_GOAROUND_NAV_MODE", "bool", 1);
-            if (this.flightPlanManager.getWaypointsCount() === 0) {
-                return;
-            }
-            this._onModeManagedHeading();
-        }
-        if (_event === "MODE_SELECTED_ALTITUDE") {
-            this.flightPhaseManager.handleFcuAltKnobPushPull();
-            this._onModeSelectedAltitude();
-            this._onStepClimbDescent();
-        }
-        if (_event === "MODE_MANAGED_ALTITUDE") {
-            this.flightPhaseManager.handleFcuAltKnobPushPull();
-            this._onModeManagedAltitude();
-            this._onStepClimbDescent();
-        }
-        if (_event === "AP_DEC_ALT" || _event === "AP_INC_ALT") {
-            this.flightPhaseManager.handleFcuAltKnobTurn();
-            this._onTrySetCruiseFlightLevel();
-        }
-        if (_event === "AP_DEC_HEADING" || _event === "AP_INC_HEADING") {
-            if (SimVar.GetSimVarValue("L:A320_FCU_SHOW_SELECTED_HEADING", "number") === 0) {
-                const currentHeading = Simplane.getHeadingMagnetic();
-                Coherent.call("HEADING_BUG_SET", 1, currentHeading);
-            }
-            SimVar.SetSimVarValue("L:A320_FCU_SHOW_SELECTED_HEADING", "number", 1);
-        }
-        if (_event === "VS") {
-            this.flightPhaseManager.handleFcuVSKnob();
+                SimVar.SetSimVarValue("L:A320_FCU_SHOW_SELECTED_HEADING", "number", 1);
+                break;
+            case "VS":
+                this.flightPhaseManager.handleFcuVSKnob();
+                break;
+            case "GPS_PRIMARY_CLR":
+                this._gpsAck = false;
+                /*
+                this.tryRemoveMessage(NXSystemMessages.gpsPrimaryLost.text);
+                this.addNewMessage(NXSystemMessages.gpsPrimary, undefined, () => {
+                    SimVar.SetSimVarValue("H:A320_Neo_MFD_GPS_PRIMARY_CLR", "bool", true); // CLR >> MFD
+                });
+                */
+                break;
+            case "GPS_PRIMARY_LOST":
+                this._gpsAck = false;
+                /*
+                this.tryRemoveMessage(NXSystemMessages.gpsPrimary.text);
+                this.addNewMessage(NXSystemMessages.gpsPrimaryLost);
+                */
+                break;
         }
     }
 
