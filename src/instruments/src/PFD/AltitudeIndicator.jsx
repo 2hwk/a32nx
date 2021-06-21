@@ -34,7 +34,7 @@ const LandingElevationIndicator = ({ altitude, FWCFlightPhase }) => {
     if (delta > DisplayRange) {
         return null;
     }
-    const offset = (delta - DisplayRange) * DistanceSpacing / ValueSpacing;
+    const offset = Math.round(((delta - DisplayRange) * DistanceSpacing / ValueSpacing) * 1000) / 1000;
 
     return (
         <path id="AltTapeLandingElevation" className="EarthFill" d={`m130.85 123.56h-13.096v${offset}h13.096z`} />
@@ -45,7 +45,7 @@ const RadioAltIndicator = ({ radioAlt }) => {
     if (radioAlt > DisplayRange) {
         return null;
     }
-    const offset = (radioAlt - DisplayRange) * DistanceSpacing / ValueSpacing;
+    const offset = Math.round(((radioAlt - DisplayRange) * DistanceSpacing / ValueSpacing) * 1000) / 1000;
 
     return (
         <path id="AltTapeGroundReference" className="Fill Red" d={`m131.15 123.56h2.8709v${offset}h-2.8709z`} />
@@ -130,7 +130,7 @@ const SelectedAltIndicator = ({ currentAlt, targetAlt, altIsManaged, mode }) => 
             </g>
         );
     }
-    const offset = (currentAlt - targetAlt) * DistanceSpacing / ValueSpacing;
+    const offset = Math.round(((currentAlt - targetAlt) * DistanceSpacing / ValueSpacing) * 1000) / 1000;
 
     return (
         <g id="AltTapeTargetSymbol" transform={`translate(0 ${offset})`}>
@@ -155,7 +155,7 @@ const LinearDeviationIndicator = ({ linearDeviation, alt }) => {
             <path id="VDevDotUpper" className="Fill Green" d="m116.24 39.8c4.9e-4 -0.83466 0.67686-1.511 1.511-1.511 0.83418 0 1.5105 0.67635 1.511 1.511h-1.511z" />
         );
     }
-    const offset = (alt - linearDeviation) * DistanceSpacing / ValueSpacing;
+    const offset = Math.round(((alt - linearDeviation) * DistanceSpacing / ValueSpacing) * 1000) / 1000;
 
     return (
         <path id="VDevDot" className="Fill Green" transform={`translate(0 ${offset})`} d="m119.26 80.796a1.511 1.5119 0 1 0-3.022 0 1.511 1.5119 0 1 0 3.022 0z" />

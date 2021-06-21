@@ -100,7 +100,7 @@ export const AirspeedIndicator = ({ airspeed, airspeedAcc, FWCFlightPhase, altit
         bugs.push([VProtBug, VMax + 6]);
     }
 
-    const clampedSpeed = Math.max(Math.min(airspeed, 660), 30);
+    const clampedSpeed = Math.round(Math.max(Math.min(airspeed, 660), 30) * 1000) / 1000;
 
     const flapsHandleIndex = getSimVar('L:A32NX_FLAPS_HANDLE_INDEX', 'Number');
 
@@ -108,11 +108,11 @@ export const AirspeedIndicator = ({ airspeed, airspeedAcc, FWCFlightPhase, altit
     if (FWCFlightPhase <= 4) {
         v1 = getSimVar('L:AIRLINER_V1_SPEED', 'knots');
         if (v1 !== 0) {
-            bugs.push([V1BugElement, Math.max(Math.min(v1, 660), 30)]);
+            bugs.push([V1BugElement, Math.round(Math.max(Math.min(v1, 660), 30) * 1000) / 1000]);
         }
         const vr = getSimVar('L:AIRLINER_VR_SPEED', 'knots');
         if (vr !== 0) {
-            bugs.push([VRBugElement, Math.max(Math.min(vr, 660), 30)]);
+            bugs.push([VRBugElement, Math.round(Math.max(Math.min(vr, 660), 30) * 1000) / 1000]);
         }
     }
 
@@ -158,7 +158,7 @@ const VAlphaLimBar = ({ VAlphalim, airspeed }) => {
     }
 
     const delta = airspeed - DisplayRange - VAlphalim;
-    const offset = delta * DistanceSpacing / ValueSpacing;
+    const offset = Math.round((delta * DistanceSpacing / ValueSpacing) * 1000) / 1000;
 
     return (
         <path id="VAlimIndicator" className="Fill Red" d={`m19.031 123.56h3.425v${offset}h-3.425z`} />
@@ -171,7 +171,7 @@ const VLsBar = ({ VAlphaProt, VLs, airspeed }) => {
     }
 
     const VLsPos = (airspeed - VLs) * DistanceSpacing / ValueSpacing + 80.818;
-    const offset = (VLs - VAlphaProt) * DistanceSpacing / ValueSpacing;
+    const offset = Math.round(((VLs - VAlphaProt) * DistanceSpacing / ValueSpacing) * 1000) / 1000;
 
     return (
         <path id="VLsIndicator" className="NormalStroke Amber" d={`m19.031 ${VLsPos}h1.9748v${offset}`} />
@@ -188,8 +188,8 @@ export const AirspeedIndicatorOfftape = ({ airspeed, mach, airspeedAcc, targetSp
         );
     }
 
-    const clampedSpeed = Math.max(Math.min(airspeed, 660), 30);
-    const clampedTargetSpeed = Math.max(Math.min(targetSpeed, 660), 30);
+    const clampedSpeed = Math.round(Math.max(Math.min(airspeed, 660), 30 * 1000) / 1000);
+    const clampedTargetSpeed = Math.round(Math.max(Math.min(targetSpeed, 660), 30 * 1000) / 1000);
     return (
         <g id="SpeedOfftapeGroup">
             <path id="SpeedTapeOutlineUpper" className="NormalStroke White" d="m1.9058 38.086h21.859" />
@@ -214,14 +214,14 @@ const SpeedTarget = ({ airspeed, targetSpeed, isManaged }) => {
             <text id="SelectedSpeedLowerText" className={`FontSmallest EndAlign ${color}`} x="23.994289" y="36.750431">{text}</text>
         );
     }
-    const offset = (airspeed - targetSpeed) * DistanceSpacing / ValueSpacing;
+    const offset = Math.round(((airspeed - targetSpeed) * DistanceSpacing / ValueSpacing) * 1000) / 1000;
     return (
         <path className={`NormalStroke ${color} CornerRound`} transform={`translate(0 ${offset})`} d="m19.274 81.895 5.3577 1.9512v-6.0476l-5.3577 1.9512" />
     );
 };
 
 const SpeedTapeOutline = ({ airspeed, isRed = false }) => {
-    const length = Math.max(Math.min(airspeed, 72), 30) * 1.01754 + 12.2104;
+    const length = Math.round((Math.max(Math.min(airspeed, 72), 30) * 1.01754 + 12.2104) * 1000) / 1000;
     const className = isRed ? 'NormalStroke Red' : 'NormalStroke White';
 
     return (
@@ -254,7 +254,7 @@ const SpeedTrendArrow = ({ airspeedAcc }) => {
     const sign = Math.sign(airspeedAcc);
     const [ArrowShown, setArrowShown] = useState(false);
 
-    const offset = -targetSpeed * DistanceSpacing / ValueSpacing;
+    const offset = Math.round((-targetSpeed * DistanceSpacing / ValueSpacing) * 1000) / 1000;
 
     if (!ArrowShown && Math.abs(targetSpeed) > 2) {
         setArrowShown(true);

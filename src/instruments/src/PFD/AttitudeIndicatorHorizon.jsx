@@ -15,7 +15,7 @@ const ValueSpacing = 10;
 const SideslipIndicatorFilter = new LagFilter(0.8);
 
 const TickFunction = (heading, offset) => (
-    <path transform={`translate(${offset} 0)`} className="NormalStroke White" d="m68.906 80.823v1.8" />
+    <path transform={`translate(${Math.round(offset * 1000) / 1000} 0)`} className="NormalStroke White" d="m68.906 80.823v1.8" />
 );
 
 const HeadingBug = (offset) => (
@@ -32,7 +32,7 @@ export const Horizon = ({ pitch, roll, heading, isOnGround, radioAlt, decisionHe
 
     const headingAvail = getSimVar('L:A320_Neo_ADIRS_STATE', 'Enum') === 2;
 
-    const yOffset = Math.max(Math.min(calculateHorizonOffsetFromPitch(pitch), 31.563), -31.563);
+    const yOffset = Math.round((Math.max(Math.min(calculateHorizonOffsetFromPitch(pitch), 31.563), -31.563)) * 1000) / 1000;
 
     const bugs = [];
     if (!Number.isNaN(selectedHeading) && !FDActive) {
@@ -41,7 +41,7 @@ export const Horizon = ({ pitch, roll, heading, isOnGround, radioAlt, decisionHe
 
     return (
         <g id="RollGroup" transform={`rotate(${roll} 68.814 80.730)`}>
-            <g id="PitchGroup" transform={`translate(0 ${calculateHorizonOffsetFromPitch(pitch)})`}>
+            <g id="PitchGroup" transform={`translate(0 ${Math.round(calculateHorizonOffsetFromPitch(pitch) * 1000) / 1000})`}>
                 <path d="m23.906 80.823v-160h90v160z" className="SkyFill" />
                 <path d="m113.91 223.82h-90v-143h90z" className="EarthFill" />
 
@@ -152,8 +152,8 @@ const FlightPathVector = () => {
     const FPA = pitch - (Math.cos(roll * Math.PI / 180) * AOA);
     const DA = getSmallestAngle(getSimVar('GPS GROUND TRUE TRACK', 'degrees'), getSimVar('GPS GROUND TRUE HEADING', 'degrees'));
 
-    const xOffset = Math.max(Math.min(DA, 21), -21) * DistanceSpacing / ValueSpacing;
-    const yOffset = calculateHorizonOffsetFromPitch(pitch) - calculateHorizonOffsetFromPitch(FPA);
+    const xOffset = Math.round((Math.max(Math.min(DA, 21), -21) * DistanceSpacing / ValueSpacing) * 1000) / 1000;
+    const yOffset = Math.round((calculateHorizonOffsetFromPitch(pitch) - calculateHorizonOffsetFromPitch(FPA)) * 1000) / 1000;
 
     return (
         <g transform={`translate(${xOffset} ${yOffset})`}>
@@ -255,7 +255,7 @@ const RadioAltAndDH = ({ radioAlt, decisionHeight, roll }) => {
 const SideslipIndicator = ({ isOnGround, roll, deltaTime }) => {
     let SIIndexOffset = 0;
 
-    const verticalOffset = calculateVerticalOffsetFromRoll(roll);
+    const verticalOffset = Math.round((calculateVerticalOffsetFromRoll(roll)) * 1000) / 1000;
 
     if (isOnGround) {
         // on ground, lateral g is indicated. max 0.3g, max deflection is 15mm
@@ -267,6 +267,7 @@ const SideslipIndicator = ({ isOnGround, roll, deltaTime }) => {
     }
 
     SIIndexOffset = SideslipIndicatorFilter.step(SIIndexOffset, deltaTime / 1000);
+    SIIndexOffset = Math.round((SIIndexOffset) * 1000) / 1000;
 
     return (
         <g id="RollTriangleGroup" transform={`translate(0 ${verticalOffset})`} className="NormalStroke Yellow CornerRound">
@@ -279,7 +280,7 @@ const SideslipIndicator = ({ isOnGround, roll, deltaTime }) => {
 const RisingGround = ({ radioAlt, pitch }) => {
     const targetPitch = -0.1 * radioAlt;
 
-    const targetOffset = Math.max(Math.min(calculateHorizonOffsetFromPitch(pitch - targetPitch) - 31.563, 0), -63.093);
+    const targetOffset = Math.round((Math.max(Math.min(calculateHorizonOffsetFromPitch(pitch - targetPitch) - 31.563, 0), -63.093)) * 1000) / 1000;
 
     return (
         <g id="HorizonGroundRectangle" transform={`translate(0 ${targetOffset})`}>

@@ -83,7 +83,7 @@ const SelectedHeading = ({ selectedHeading, heading }) => {
     const headingDelta = getSmallestAngle(selectedHeading, heading);
     const text = Math.round(selectedHeading).toString().padStart(3, '0');
     if (Math.abs(headingDelta) < DisplayRange) {
-        const offset = headingDelta * DistanceSpacing / ValueSpacing;
+        const offset = Math.round((headingDelta * DistanceSpacing / ValueSpacing) * 1000) / 1000;
 
         return (
             <path id="HeadingTargetIndicator" className="NormalStroke Cyan CornerRound" transform={`translate(${offset} 0)`} d="m69.978 145.1 1.9501-5.3609h-6.0441l1.9501 5.3609" />
@@ -99,7 +99,7 @@ const SelectedHeading = ({ selectedHeading, heading }) => {
 };
 
 const GroundTrackBug = ({ heading, groundTrack }) => {
-    const offset = getSmallestAngle(groundTrack, heading) * DistanceSpacing / ValueSpacing;
+    const offset = Math.round((getSmallestAngle(groundTrack, heading) * DistanceSpacing / ValueSpacing) * 1000) / 1000;
     return (
         <g id="ActualTrackIndicator" transform={`translate(${offset} 0)`}>
             <path className="ThickOutline CornerRound" d="m68.906 145.75-1.2592 1.7639 1.2592 1.7639 1.2592-1.7639z" />
@@ -132,7 +132,7 @@ const QFUIndicator = ({ ILSCourse, heading }) => {
         );
     }
 
-    const offset = getSmallestAngle(ILSCourse, heading) * DistanceSpacing / ValueSpacing;
+    const offset = Math.round((getSmallestAngle(ILSCourse, heading) * DistanceSpacing / ValueSpacing) * 1000) / 1000;
     return (
         <g id="ILSCoursePointer" transform={`translate(${offset} 0)`}>
             <path className="ThickOutline" d="m66.992 152.82h3.8279m-1.914-6.5471v9.4518" />

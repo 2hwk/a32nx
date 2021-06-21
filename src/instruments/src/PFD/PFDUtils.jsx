@@ -49,8 +49,8 @@ export const HorizontalTape = ({ displayRange, valueSpacing, distanceSpacing, gr
     const bugElements = [];
 
     for (let i = 0; i < numTicks; i++) {
-        const elementHeading = leftmostHeading + i * valueSpacing;
-        const offset = elementHeading * distanceSpacing / valueSpacing;
+        const elementHeading = Math.round((leftmostHeading + i * valueSpacing) * 1000) / 1000;
+        const offset = Math.round((elementHeading * distanceSpacing / valueSpacing) * 1000) / 1000;
         graduationElements.push(graduationElementFunction(elementHeading, offset));
     }
 
@@ -67,11 +67,12 @@ export const HorizontalTape = ({ displayRange, valueSpacing, distanceSpacing, gr
         }
 
         offset *= distanceSpacing / valueSpacing;
+        offset = Math.round(offset * 1000) / 1000;
         bugElements.push(currentElement[0](offset));
     });
 
     return (
-        <g transform={`translate(${-heading * distanceSpacing / valueSpacing} ${yOffset})`}>
+        <g transform={`translate(${Math.round((-heading * distanceSpacing / valueSpacing) * 1000) / 1000} ${yOffset})`}>
             {graduationElements}
             {bugElements}
         </g>
@@ -84,7 +85,7 @@ export const VerticalTape = ({
 }) => {
     const numTicks = Math.round(displayRange * 2 / valueSpacing);
 
-    const clampedValue = Math.max(Math.min(tapeValue, upperLimit), lowerLimit);
+    const clampedValue = Math.round((Math.max(Math.min(tapeValue, upperLimit), lowerLimit) * 1000) / 1000);
 
     let lowestValue = Math.max(Math.round((clampedValue - displayRange) / valueSpacing) * valueSpacing, lowerLimit);
     if (lowestValue < tapeValue - displayRange) {
@@ -97,7 +98,7 @@ export const VerticalTape = ({
     for (let i = 0; i < numTicks; i++) {
         const elementValue = lowestValue + i * valueSpacing;
         if (elementValue <= upperLimit) {
-            const offset = -elementValue * distanceSpacing / valueSpacing;
+            const offset = Math.round((-elementValue * distanceSpacing / valueSpacing) * 1000) / 1000;
             graduationElements.push(graduationElementFunction(elementValue, offset));
         }
     }
@@ -105,7 +106,7 @@ export const VerticalTape = ({
     bugs.forEach((currentElement) => {
         const value = currentElement[1];
 
-        const offset = -value * distanceSpacing / valueSpacing;
+        const offset = Math.round((-value * distanceSpacing / valueSpacing) * 1000) / 1000;
         bugElements.push(currentElement[0](offset, value));
     });
 
@@ -200,7 +201,7 @@ export class RateLimiter {
         const scaledUpper = deltaTime * this.RisingRate;
         const scaledLower = deltaTime * this.FallingRate;
 
-        const output = this.PreviousOutput + Math.max(Math.min(scaledUpper, subInput), scaledLower);
+        const output = this.PreviousOutput + Math.round(Math.max(Math.min(scaledUpper, subInput), scaledLower) * 1000) / 1000;
         this.PreviousOutput = output;
         return output;
     }

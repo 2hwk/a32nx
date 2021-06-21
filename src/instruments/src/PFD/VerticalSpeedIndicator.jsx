@@ -37,6 +37,8 @@ export const VerticalSpeedIndicator = ({ radioAlt }) => {
         yOffset = sign * -47.37;
     }
 
+    yOffset = Math.round(yOffset * 1000) / 1000;
+
     return (
         <g>
             <path className="TapeBackground" d="m151.84 131.72 4.1301-15.623v-70.556l-4.1301-15.623h-5.5404v101.8z" />

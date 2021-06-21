@@ -9,7 +9,7 @@ const TensDigits = (value, offset, color) => {
     }
 
     return (
-        <text transform={`translate(0 ${offset})`} className={`FontSmallest MiddleAlign ${color}`} x="4.3894" y="8.9133">{text}</text>
+        <text transform={`translate(0 ${Math.round(offset * 1000) / 1000})`} className={`FontSmallest MiddleAlign ${color}`} x="4.3894" y="8.9133">{text}</text>
     );
 };
 
@@ -24,7 +24,7 @@ const HundredsDigit = (value, offset, color) => {
     }
 
     return (
-        <text transform={`translate(0 ${offset})`} className={`FontLargest MiddleAlign ${color}`} x="11.431" y="7.1">{text}</text>
+        <text transform={`translate(0 ${Math.round(offset * 1000) / 1000})`} className={`FontLargest MiddleAlign ${color}`} x="11.431" y="7.1">{text}</text>
     );
 };
 const ThousandsDigit = (value, offset, color) => {
@@ -35,7 +35,7 @@ const ThousandsDigit = (value, offset, color) => {
         text = '';
     }
     return (
-        <text transform={`translate(0 ${offset})`} className={`FontLargest MiddleAlign ${color}`} x="6.98" y="7.1">{text}</text>
+        <text transform={`translate(0 ${Math.round(offset * 1000) / 1000})`} className={`FontLargest MiddleAlign ${color}`} x="6.98" y="7.1">{text}</text>
     );
 };
 const TenThousandsDigit = (value, offset, color) => {
@@ -46,7 +46,7 @@ const TenThousandsDigit = (value, offset, color) => {
         text = '';
     }
     return (
-        <text transform={`translate(0 ${offset})`} className={`FontLargest MiddleAlign ${color}`} x="2.298" y="7.1">{text}</text>
+        <text transform={`translate(0 ${Math.round(offset * 1000) / 1000})`} className={`FontLargest MiddleAlign ${color}`} x="2.298" y="7.1">{text}</text>
     );
 };
 
@@ -123,7 +123,7 @@ const Drum = ({ displayRange, valueSpacing, distanceSpacing, position, value, co
 
     for (let i = 0; i < numTicks; i++) {
         const elementPosition = highestPosition - i * valueSpacing;
-        const offset = -elementPosition * distanceSpacing / valueSpacing;
+        const offset = Math.round((-elementPosition * distanceSpacing / valueSpacing) * 1000) / 1000;
 
         let elementVal = highestValue - i * valueSpacing;
         if (!showZero && elementVal === 0) {
@@ -134,7 +134,7 @@ const Drum = ({ displayRange, valueSpacing, distanceSpacing, position, value, co
     }
 
     return (
-        <g transform={`translate(0 ${position * distanceSpacing / valueSpacing})`}>
+        <g transform={`translate(0 ${Math.round((position * distanceSpacing / valueSpacing) * 1000) / 1000})`}>
             {graduationElements}
         </g>
     );

@@ -65,9 +65,9 @@ class PFD extends Component {
     }
 
     render() {
-        const pitch = -getSimVar('PLANE PITCH DEGREES', 'degrees');
-        const roll = getSimVar('PLANE BANK DEGREES', 'degrees');
-        const heading = getSimVar('PLANE HEADING DEGREES MAGNETIC', 'degrees');
+        const pitch = Math.round(-getSimVar('PLANE PITCH DEGREES', 'degrees') * 1000) / 1000;
+        const roll = Math.round(getSimVar('PLANE BANK DEGREES', 'degrees') * 1000) / 1000;
+        const heading = Math.round(getSimVar('PLANE HEADING DEGREES MAGNETIC', 'degrees') * 1000) / 1000;
 
         if (!this.isAttExcessive && (pitch > 25 || pitch < -13 || Math.abs(roll) > 45)) {
             this.isAttExcessive = true;

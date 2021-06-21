@@ -71,7 +71,7 @@ const FDYawBar = ({ FDActive }) => {
     }
 
     const FDYawCommand = getSimVar('L:A32NX_FLIGHT_DIRECTOR_YAW', 'number');
-    const offset = -Math.max(Math.min(FDYawCommand, 45), -45) * 0.44;
+    const offset = Math.round((-Math.max(Math.min(FDYawCommand, 45), -45) * 0.44) * 1000) / 1000;
 
     return (
         <path id="GroundYawSymbol" className="NormalStroke Green" transform={`translate(${offset} 0)`} d="m67.899 82.536v13.406h2.0147v-13.406l-1.0074-1.7135z" />
@@ -95,13 +95,13 @@ const FlightDirector = ({ FDActive }) => {
     if (showLateralFD) {
         const FDRollOrder = getSimVar('L:A32NX_FLIGHT_DIRECTOR_BANK', 'number');
         const currentRoll = getSimVar('PLANE BANK DEGREES', 'degrees');
-        FDRollOffset = Math.min(Math.max(currentRoll - FDRollOrder, -45), 45) * 0.44;
+        FDRollOffset = Math.round((Math.min(Math.max(currentRoll - FDRollOrder, -45), 45) * 0.44) * 1000) / 1000;
     }
 
     if (showVerticalFD) {
         const FDPitchOrder = getSimVar('L:A32NX_FLIGHT_DIRECTOR_PITCH', 'number');
         const currentPitch = -getSimVar('PLANE PITCH DEGREES', 'degrees');
-        FDPitchOffset = Math.min(Math.max(FDPitchOrder + currentPitch, -22.5), 22.5) * 0.89;
+        FDPitchOffset = Math.round(Math.min(Math.max(FDPitchOrder + currentPitch, -22.5), 22.5 * 0.89) * 1000) / 1000;
     }
 
     return (
