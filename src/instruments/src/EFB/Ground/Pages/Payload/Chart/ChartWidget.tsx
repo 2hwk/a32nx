@@ -64,8 +64,8 @@ export const ChartWidget: React.FC<ChartWidgetProps> = ({
             const xStep = width / CanvasConst.cgLines;
             const shiftX = (width / 18);
 
-            const weightToY = (weight) => (80 - (weight / 1000)) * yStep / 5;
-            const cgToX = (cg) => ((cg - 12) * xStep);
+            const weightToY = (weight: number) => (80 - (weight / 1000)) * yStep / 5;
+            const cgToX = (cg: number) => ((cg - 12) * xStep);
 
             const cgWeightToXY = (cg, weight) => {
                 const xStart = cgToX(cg);
