@@ -2,7 +2,7 @@ import { NdTraffic } from '@shared/NavigationDisplay';
 // import { MathUtils } from '@shared/MathUtils';
 import { MapLayer } from './MapLayer';
 import { MapParameters } from '../../../ND/utils/MapParameters';
-// import { PaintUtils } from './PaintUtils';
+import { PaintUtils } from './PaintUtils';
 import { CanvasMap } from './CanvasMap';
 
 export class TrafficLayer implements MapLayer<NdTraffic> {
@@ -12,12 +12,12 @@ export class TrafficLayer implements MapLayer<NdTraffic> {
     }
 
     paintShadowLayer(context: CanvasRenderingContext2D, mapWidth: number, mapHeight: number, mapParameters: MapParameters) {
-        for (const symbol of this.data) {
-            const [x, y] = mapParameters.coordinatesToXYy({ lat: symbol.lat, long: symbol.lon });
+        for (const intruder of this.data) {
+            const [x, y] = mapParameters.coordinatesToXYy({ lat: intruder.lat, long: intruder.lon });
             const rx = x + mapWidth / 2;
             const ry = y + mapHeight / 2;
 
-            this.paintIntruder(context, rx, ry, '#040405', 3.75);
+            this.paintIntruder(false, context, rx, ry, intruder);
 
             /*
             if (symbol.type & NdSymbolTypeFlags.FlightPlan) {
@@ -32,12 +32,12 @@ export class TrafficLayer implements MapLayer<NdTraffic> {
     }
 
     paintColorLayer(context: CanvasRenderingContext2D, mapWidth: number, mapHeight: number, mapParameters: MapParameters) {
-        for (const symbol of this.data) {
-            const [x, y] = mapParameters.coordinatesToXYy({ lat: symbol.lat, long: symbol.lon });
+        for (const intruder of this.data) {
+            const [x, y] = mapParameters.coordinatesToXYy({ lat: intruder.lat, long: intruder.lon });
             const rx = x + mapWidth / 2;
             const ry = y + mapHeight / 2;
 
-            this.paintIntruder(context, rx, ry, '#ffffff', 1.6);
+            this.paintIntruder(true, context, rx, ry, intruder);
 
             /*
             if (symbol.type & NdSymbolTypeFlags.FlightPlan) {
@@ -51,7 +51,20 @@ export class TrafficLayer implements MapLayer<NdTraffic> {
         }
     }
 
-    private paintIntruder(context: CanvasRenderingContext2D, x: number, y: number, color: string, lineWidth: number) {
+    private paintIntruder(isColorLayer: boolean, context: CanvasRenderingContext2D, x: number, y: number, intruder: NdTraffic) {
+        this.paintNormalIntruder(context, x, y, isColorLayer ? '#fff' : '#040405', 1.6);
+
+        context.font = '21px Ecam';
+        PaintUtils.paintText(
+            isColorLayer,
+            context,
+            x - 24,
+            y + (intruder.relativeAlt > 0 ? -14 : 27.5),
+            `${intruder.relativeAlt > 0 ? '+' : '-'}${Math.abs(intruder.relativeAlt) < 10 ? '0' : ''}${Math.abs(intruder.relativeAlt)}`, '#fff',
+        );
+    }
+
+    private paintNormalIntruder(context: CanvasRenderingContext2D, x: number, y: number, color: string, lineWidth: number) {
         context.strokeStyle = color;
         context.lineWidth = lineWidth;
 
