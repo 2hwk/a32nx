@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 import { ClockEvents, DisplayComponent, EventBus, FSComponent, MappedSubject, Subscribable, VNode } from 'msfssdk';
-import { EfisVectorsGroup, NdSymbol, NdSymbolTypeFlags } from '@shared/NavigationDisplay';
+import { EfisVectorsGroup, NdSymbol, NdSymbolTypeFlags, NdTraffic } from '@shared/NavigationDisplay';
 import type { PathVector } from '@fmgc/guidance/lnav/PathVector';
 import { distanceTo } from 'msfs-geo';
 import { FmsSymbolsData } from '../../FmsSymbolsPublisher';
@@ -8,6 +9,7 @@ import { NDSimvars } from '../../NDSimvarPublisher';
 import { WaypointLayer } from './WaypointLayer';
 import { ConstraintsLayer } from './ConstraintsLayer';
 import { RunwayLayer } from './RunwayLayer';
+import { TrafficLayer } from './TrafficLayer';
 import { FixInfoLayer } from './FixInfoLayer';
 
 export interface CanvasMapProps {
@@ -43,6 +45,8 @@ export class CanvasMap extends DisplayComponent<CanvasMapProps> {
 
     private readonly symbols: NdSymbol[] = [];
 
+    private readonly traffic: NdTraffic[] = [];
+
     private readonly mapParams = new MapParameters();
 
     public pointerX = 0;
@@ -56,6 +60,8 @@ export class CanvasMap extends DisplayComponent<CanvasMapProps> {
     private readonly constraintsLayer = new ConstraintsLayer();
 
     private readonly runwayLayer = new RunwayLayer();
+
+    private readonly trafficLayer = new TrafficLayer(this);
 
     onAfterRender(node: VNode) {
         super.onAfterRender(node);
@@ -94,6 +100,10 @@ export class CanvasMap extends DisplayComponent<CanvasMapProps> {
         sub.on('vectorsActive').handle((data: PathVector[]) => {
             this.vectors[EfisVectorsGroup.ACTIVE].length = 0;
             this.vectors[EfisVectorsGroup.ACTIVE].push(...data);
+        });
+
+        sub.on('traffic').handle((data: NdTraffic[]) => {
+            this.handleNewTraffic(data);
         });
 
         sub.on('vectorsTemporary').handle((data: PathVector[]) => {
@@ -145,6 +155,13 @@ export class CanvasMap extends DisplayComponent<CanvasMapProps> {
         this.runwayLayer.data = runways;
     }
 
+    private handleNewTraffic(traffic: NdTraffic[]) {
+        this.traffic.length = 0;
+        this.traffic.push(...traffic);
+
+        this.trafficLayer.data = this.traffic;
+    }
+
     private handleFrame() {
         // console.log(`center: lat=${this.props.mapCenterLat.get()}, long=${this.props.mapCenterLong.get()}`);
 
@@ -178,6 +195,9 @@ export class CanvasMap extends DisplayComponent<CanvasMapProps> {
 
         this.runwayLayer.paintShadowLayer(context, this.props.width, this.props.height, this.mapParams);
         this.runwayLayer.paintColorLayer(context, this.props.width, this.props.height, this.mapParams);
+
+        this.trafficLayer.paintShadowLayer(context, this.props.width, this.props.height, this.mapParams);
+        this.trafficLayer.paintColorLayer(context, this.props.width, this.props.height, this.mapParams);
     }
 
     private drawVector(context: CanvasRenderingContext2D, vector: PathVector, group: EfisVectorsGroup) {
