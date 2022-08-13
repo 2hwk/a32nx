@@ -1,0 +1,3438 @@
+{
+    "specs": {
+        "prefix": "A380",
+        "emptyPosition": -8.75,
+        "macSize": 13.454,
+        "leMacZ": -5.386,
+        "weights": {
+            "maxZfw": 64300,
+            "minZfw": 42500
+        },
+        "pax": {
+            "defaultPaxWeight": 80,
+            "defaultBagWeight": 15,
+            "minPaxWeight": 10,
+            "maxPaxWeight": 250,
+            "minBagWeight": 1,
+            "maxBagWeight": 250
+        }
+    },
+    "seatMap": [
+        {
+            "name": "A1 ROWS [1-4]",
+            "rows": [
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                }
+            ],
+            "index": 0,
+            "stationIndex": 1,
+            "position": 21.98,
+            "fill": 0.19,
+            "simVar": "A380X_PAX_LOWER_ROWS_1_4",
+            "bitFlags": "PAX_FLAGS_A1"
+        },
+        {
+            "name": "A2 ROWS [5-8]",
+            "rows": [
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                }
+            ],
+            "index": 1,
+            "stationIndex": 2,
+            "position": 21.98,
+            "fill": 0.19,
+            "simVar": "A380X_PAX_LOWER_ROWS_5_8",
+            "bitFlags": "PAX_FLAGS_A2"
+        },
+        {
+            "name": "B1 ROWS [9-12]",
+            "rows": [
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 25,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                }
+            ],
+            "index": 2,
+            "stationIndex": 3,
+            "position": 2.86,
+            "fill": 0.25,
+            "simVar": "A380X_PAX_LOWER_ROWS_9_12",
+            "bitFlags": "PAX_FLAGS_B1"
+        },
+        {
+            "name": "B2 ROWS [13-16]",
+            "rows": [
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                }
+            ],
+            "index": 3,
+            "stationIndex": 4,
+            "position": 2.86,
+            "fill": 0.19,
+            "simVar": "A380X_PAX_LOWER_ROWS_13_16",
+            "bitFlags": "PAX_FLAGS_B2"
+        },
+        {
+            "name": "B3 ROWS [17-20]",
+            "rows": [
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                }
+            ],
+            "index": 4,
+            "stationIndex": 5,
+            "position": 2.86,
+            "fill": 0.19,
+            "simVar": "A380X_PAX_LOWER_ROWS_17_20",
+            "bitFlags": "PAX_FLAGS_B3"
+        },
+        {
+            "name": "B4 ROWS [21-24]",
+            "rows": [
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                }
+            ],
+            "index": 5,
+            "stationIndex": 6,
+            "position": 2.86,
+            "fill": 0.19,
+            "simVar": "A380X_PAX_LOWER_ROWS_21_24",
+            "bitFlags": "PAX_FLAGS_B4"
+        },
+        {
+            "name": "C1 ROWS [25-29]",
+            "rows": [
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 14,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                }
+            ],
+            "index": 6,
+            "stationIndex": 7,
+            "position": -15.34,
+            "fill": 0.28,
+            "simVar": "A380X_PAX_LOWER_ROWS_25_29",
+            "bitFlags": "PAX_FLAGS_C1"
+        },
+        {
+            "name": "C2 ROWS [30-33]",
+            "rows": [
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                }
+            ],
+            "index": 7,
+            "stationIndex": 8,
+            "position": -15.34,
+            "fill": 0.19,
+            "simVar": "A380X_PAX_LOWER_ROWS_30_33",
+            "bitFlags": "PAX_FLAGS_C2"
+        },
+        {
+            "name": "C3 ROWS [34-37]",
+            "rows": [
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                }
+            ],
+            "index": 8,
+            "stationIndex": 9,
+            "position": -15.34,
+            "fill": 0.19,
+            "simVar": "A380X_PAX_LOWER_ROWS_34_37",
+            "bitFlags": "PAX_FLAGS_C3"
+        },
+        {
+            "name": "D1 ROWS [38-41]",
+            "rows": [
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 18,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                }
+            ],
+            "fill": 0.28,
+            "index": 8,
+            "stationIndex": 9,
+            "position": -32.81,
+            "simVar": "A380X_PAX_LOWER_ROWS_38_41",
+            "bitFlags": "PAX_FLAGS_D1"
+        },
+        {
+            "name": "D2 ROWS [42-45]",
+            "rows": [
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                },
+                {
+                    "seats": [
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 11.4
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        },
+                        {
+                            "type": 2,
+                            "x": 0,
+                            "y": 0,
+                            "yOffset": 0
+                        }
+                    ],
+                    "x": 0,
+                    "y": 0,
+                    "xOffset": 0,
+                    "yOffset": 0
+                }
+            ],
+            "index": 9,
+            "stationIndex": 10,
+            "position": -32.81,
+            "fill": 0.19,
+            "simVar": "A380X_PAX_LOWER_ROWS_42_45",
+            "bitFlags": "PAX_FLAGS_D2"
+        }
+    ],
+    "cargoMap": [
+        {
+            "name": "FWD BAGGAGE/CONTAINER",
+            "weight": 3402,
+            "index": 0,
+            "stationIndex": 10,
+            "position": 18.28,
+            "progressBarWidth": 160,
+            "simVar": "A32NX_CARGO_FWD_BAGGAGE_CONTAINER"
+        },
+        {
+            "name": "AFT CONTAINER",
+            "weight": 2426,
+            "index": 1,
+            "stationIndex": 11,
+            "position": -15.96,
+            "progressBarWidth": 100,
+            "simVar": "A32NX_CARGO_AFT_CONTAINER"
+        },
+        {
+            "name": "AFT BAGGAGE",
+            "weight": 2110,
+            "index": 2,
+            "stationIndex": 12,
+            "position": -27.1,
+            "progressBarWidth": 100,
+            "simVar": "A32NX_CARGO_AFT_BAGGAGE"
+        },
+        {
+            "name": "AFT BULK/LOOSE",
+            "weight": 1497,
+            "index": 3,
+            "stationIndex": 13,
+            "position": -37.35,
+            "progressBarWidth": 100,
+            "simVar": "A32NX_CARGO_AFT_BULK_LOOSE"
+        }
+    ],
+    "chart": {
+        "performanceEnvelope": {
+            "mlw": [
+                [
+                    15,
+                    42500
+                ],
+                [
+                    15,
+                    53000
+                ],
+                [
+                    17,
+                    63000
+                ],
+                [
+                    17,
+                    67400
+                ],
+                [
+                    40,
+                    67400
+                ],
+                [
+                    40,
+                    50000
+                ],
+                [
+                    35,
+                    46000
+                ],
+                [
+                    35,
+                    42500
+                ]
+            ],
+            "mzfw": [
+                [
+                    17,
+                    64300
+                ],
+                [
+                    40,
+                    64300
+                ],
+                [
+                    40,
+                    50000
+                ],
+                [
+                    35,
+                    46000
+                ],
+                [
+                    35,
+                    42500
+                ],
+                [
+                    15,
+                    42500
+                ]
+            ],
+            "mtow": [
+                [
+                    15,
+                    42500
+                ],
+                [
+                    15,
+                    53000
+                ],
+                [
+                    17,
+                    63000
+                ],
+                [
+                    17,
+                    72000
+                ],
+                [
+                    27,
+                    79000
+                ],
+                [
+                    36,
+                    79000
+                ],
+                [
+                    40,
+                    73500
+                ],
+                [
+                    40,
+                    58000
+                ],
+                [
+                    33,
+                    42500
+                ]
+            ],
+            "flight": [
+                [
+                    13,
+                    42500
+                ],
+                [
+                    13,
+                    52500
+                ],
+                [
+                    15,
+                    63000
+                ],
+                [
+                    15,
+                    72000
+                ],
+                [
+                    25,
+                    79000
+                ],
+                [
+                    38,
+                    79000
+                ],
+                [
+                    41,
+                    74500
+                ],
+                [
+                    41,
+                    51000
+                ],
+                [
+                    35,
+                    46000
+                ],
+                [
+                    35,
+                    42500
+                ],
+                [
+                    13,
+                    42500
+                ]
+            ]
+        },
+        "chartLimits": {
+            "weight": {
+                "min": 40000,
+                "max": 80000,
+                "lines": 9,
+                "scale": 5000,
+                "values": [
+                    80,
+                    70,
+                    60,
+                    50,
+                    40
+                ]
+            },
+            "cg": {
+                "angleRad": 0.014025,
+                "min": 12,
+                "max": 47,
+                "overlap": 32,
+                "highlight": 5,
+                "lines": 35,
+                "scale": 1,
+                "values": [
+                    15,
+                    20,
+                    25,
+                    30,
+                    35,
+                    40
+                ]
+            },
+            "labels": {
+                "mtow": {
+                    "x1": 0.65,
+                    "x2": 0.22,
+                    "y": 0.02
+                },
+                "mlw": {
+                    "x1": 0.65,
+                    "x2": 0.22,
+                    "y": 0.22
+                },
+                "mzfw": {
+                    "x1": 0.65,
+                    "x2": 0.22,
+                    "y": 0.29
+                }
+            }
+        }
+    }
+}
