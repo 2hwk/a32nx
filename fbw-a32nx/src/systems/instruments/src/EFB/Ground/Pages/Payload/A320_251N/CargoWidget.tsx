@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { CargoBar } from '../PayloadElements';
-import { CargoStationInfo } from '../Seating/Constants';
+import { CargoBar, CargoStationInfo } from '@flybywiresim/flypad-common';
 
 interface SeatMapProps {
     cargo: number[],

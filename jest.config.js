@@ -17,5 +17,6 @@ module.exports = {
     },
     moduleNameMapper: {
         '@flybywiresim/fbw-sdk' : '<rootDir>/fbw-common/src/systems/index.ts',
+        '@flybywiresim/flypad-common' : '<rootDir>/fbw-common/src/systems/instruments/EFB/index.ts',
     }
 };

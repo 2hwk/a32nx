@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import * as ReactDOMServer from 'react-dom/server';
 import { BitFlags } from '@flybywiresim/fbw-sdk';
 import { CanvasConst, SeatConstants, SeatInfo, PaxStationInfo, SeatType, RowInfo } from './Constants';
-import { BusinessSeatLeft, BusinessSeatRight, Seat, SuiteLeft, SuiteRight } from '../../../../Assets/Seat';
+import { BusinessSeatLeft, BusinessSeatRight, Seat, SuiteLeft, SuiteRight } from '../../../../../../../fbw-a32nx/src/systems/instruments/src/EFB/Assets/Seat';
 
 interface SeatMapProps {
     seatMap: PaxStationInfo[],

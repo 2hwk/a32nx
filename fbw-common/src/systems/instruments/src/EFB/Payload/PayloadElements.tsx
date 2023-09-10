@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { ArrowLeftRight, BoxArrowRight, BriefcaseFill, CaretDownFill, PersonFill, Shuffle, StopCircleFill } from 'react-bootstrap-icons';
-import { ProgressBar } from '../../../UtilComponents/Progress/Progress';
-import { t } from '../../../translation';
-import { TooltipWrapper } from '../../../UtilComponents/TooltipWrapper';
-import { SimpleInput } from '../../../UtilComponents/Form/SimpleInput/SimpleInput';
-import { Units } from '../../../../../../../../../fbw-common/src/systems/shared/src';
-import { CargoStationInfo, PaxStationInfo } from './Seating/Constants';
+import { ProgressBar } from '../../../../../../../fbw-a32nx/src/systems/instruments/src/EFB/UtilComponents/Progress/Progress';
+import { t } from '../../../../../../../fbw-a32nx/src/systems/instruments/src/EFB/translation';
+import { TooltipWrapper } from '../../../../../../../fbw-a32nx/src/systems/instruments/src/EFB/UtilComponents/TooltipWrapper';
+import { SimpleInput } from '../../../../../../../fbw-a32nx/src/systems/instruments/src/EFB/UtilComponents/Form/SimpleInput/SimpleInput';
+import { Units } from '../../../../shared/src';
+import { CargoStationInfo, PaxStationInfo } from '../Seating/Constants';
 
 export type Loadsheet = {
     specs: AirframeSpec,

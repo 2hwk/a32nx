@@ -2,17 +2,14 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { CloudArrowDown } from 'react-bootstrap-icons';
 import { SeatFlags, Units, usePersistentNumberProperty, usePersistentProperty, useSeatFlags, useSimVar } from '@flybywiresim/fbw-sdk';
+import { ChartWidget, BoardingInput, MiscParamsInput, PayloadInputTable, CargoStationInfo, PaxStationInfo, SeatMapWidget } from '@flybywiresim/flypad-common';
 import { SeatOutlineBg } from 'instruments/src/EFB/Assets/SeatOutlineBg';
-import { BoardingInput, MiscParamsInput, PayloadInputTable } from '../PayloadElements';
 import { CargoWidget } from './CargoWidget';
-import { ChartWidget } from '../Chart/ChartWidget';
-import { CargoStationInfo, PaxStationInfo } from '../Seating/Constants';
 import { t } from '../../../../translation';
 import { TooltipWrapper } from '../../../../UtilComponents/TooltipWrapper';
 import Loadsheet from './a20nv55.json';
 import Card from '../../../../UtilComponents/Card/Card';
 import { SelectGroup, SelectItem } from '../../../../UtilComponents/Form/Select';
-import { SeatMapWidget } from '../Seating/SeatMapWidget';
 import { PromptModal, useModals } from '../../../../UtilComponents/Modals/Modals';
 
 interface A320Props {
@@ -298,6 +295,8 @@ export const A320Payload: React.FC<A320Props> = ({
     }, [totalPaxDesired, totalPax, totalCargo, boardingStarted, totalCargoDesired]);
 
     const calculateBoardingTime = useMemo(() => {
+        // TODO: Factor in multiple gates
+
         // factors taken from payload.rs TODO: Simvar
         let boardingRateMultiplier = 0;
         if (boardingRate === 'REAL') {
