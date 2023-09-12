@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimBase.Document Type="MissionFile" version="1,0" id="Fuel">
+  <Title>FreeFlight</Title>
+  <Filename>Pushback.spb</Filename>
+  <WorldBase.Flight>
+    <Service.GroundService>
+      <Name>Pushback</Name>
+    </Service.GroundService>
+    <SimContain.Container InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+      <SimBase.Descr>PushBack</SimBase.Descr>
+      <UseRegionContainerType>true</UseRegionContainerType>
+      <WorldBase.IsOnGround>true</WorldBase.IsOnGround>
+      <AIType>PushBack</AIType>
+      <AddPilot>
+        <UseRegionContainerType>true</UseRegionContainerType>
+        <AIType>GroundVehicle_Pilot</AIType>
+      </AddPilot>
+    </SimContain.Container>
+  </WorldBase.Flight>
+</SimBase.Document>

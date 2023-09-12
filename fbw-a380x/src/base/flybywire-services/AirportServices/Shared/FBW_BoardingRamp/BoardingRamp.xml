@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimBase.Document Type="MissionFile" version="1,0" id="Fuel">
+  <Title>FreeFlight</Title>
+  <Filename>BoardingRamp.spb</Filename>
+  <WorldBase.Flight>
+    <Service.GroundService>
+      <Name>BoardingRamp</Name>
+      <States>
+        <State UniqueRefId="{204C2325-A93C-481F-B7AB-CC957C52E692}">
+          <Name>Loading</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="FBW Init Boarding" InstanceId="{A680DAC6-2AA1-45B4-A03E-391EB36F9E60}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+        <State UniqueRefId="{204C2325-A93C-481F-B7AB-CC957C52E692}">
+          <Name>Unloading</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="FBW Init Boarding" InstanceId="{A680DAC6-2AA1-45B4-A03E-391EB36F9E60}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+        <State UniqueRefId="{204C2325-A93C-481F-B7AB-CC957C52E692}">
+          <Name>Finished_Operation</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Abort timer loading" InstanceId="{30EAF4CF-6CCB-4869-85CA-25E16B0ED037}" />
+            <ObjectReference id="Reset TimerTrigger" InstanceId="{FC072D8F-ACC4-4E8E-9147-43EB01E64333}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+      </States>
+    </Service.GroundService>
+    <SimContain.Container InstanceId="{204C2325-A93C-481F-B7AB-CC957C52E692}">
+      <SimBase.Descr>BoardingRamp</SimBase.Descr>
+      <UseRegionContainerType>true</UseRegionContainerType>
+      <WorldBase.IsOnGround>true</WorldBase.IsOnGround>
+      <AIType>BoardingRamp</AIType>
+      <AddPilot>
+        <UseRegionContainerType>true</UseRegionContainerType>
+        <AIType>GroundVehicle_Pilot</AIType>
+      </AddPilot>
+    </SimContain.Container>
+
+    <SimMission.ObjectActivationAction InstanceId="{A680DAC6-2AA1-45B4-A03E-391EB36F9E60}">
+      <SimBase.Descr>FBW Init Boarding</SimBase.Descr>
+      <NewObjectState>true</NewObjectState>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference id="FBW Hold Boarding" InstanceId="{B6A3C442-42D9-4C24-9E6E-373A274E328B}" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.ObjectActivationAction>
+
+    <SimMission.PropertyTrigger InstanceId="{B6A3C442-42D9-4C24-9E6E-373A274E328B}">
+      <SimBase.Descr>FBW Hold Boarding</SimBase.Descr>
+      <WorldBase.Activated>false</WorldBase.Activated>
+      <ReversePolishCondition>
+        (Z:FBW_BOARDING_STAIRS, BOOL) !
+      </ReversePolishCondition>
+      <Actions>
+        <WorldBase.ObjectReference id="Time Loading" InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}" />
+      </Actions>
+    </SimMission.PropertyTrigger>
+
+    <SimMission.ObjectActivationAction InstanceId="{30EAF4CF-6CCB-4869-85CA-25E16B0ED037}">
+      <SimBase.Descr>Abort timer loading</SimBase.Descr>
+      <NewObjectState>false</NewObjectState>
+      <WorldBase.ObjectReferenceList />
+    </SimMission.ObjectActivationAction>
+    <SimMission.ResetTimerAction InstanceId="{FC072D8F-ACC4-4E8E-9147-43EB01E64333}">
+      <SimBase.Descr>Reset TimerTrigger</SimBase.Descr>
+      <Triggers />
+    </SimMission.ResetTimerAction>
+
+    <SimMission.TimerTrigger InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}">
+      <SimBase.Descr>Time Loading</SimBase.Descr>
+      <WorldBase.Activated>false</WorldBase.Activated>
+      <OneShot>true</OneShot>
+      <OnScreenTimer>true</OnScreenTimer>
+      <StartTime>0.000</StartTime>
+      <StopTime>30.000</StopTime>
+      <Actions>
+        <WorldBase.ObjectReference id="SendMessageToAIAction Boarding is finished" InstanceId="{28DE0754-24FB-4B2F-91E8-B628570B32D5}" />
+      </Actions>
+    </SimMission.TimerTrigger>
+    <SimMission.SendMessageToAIAction InstanceId="{28DE0754-24FB-4B2F-91E8-B628570B32D5}">
+      <SimBase.Descr>SendMessageToAIAction Boarding is finished</SimBase.Descr>
+      <Name>FINISHED_OPERATION</Name>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference id="CateringTruck" InstanceId="{204C2325-A93C-481F-B7AB-CC957C52E692}" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.SendMessageToAIAction>
+  </WorldBase.Flight>
+</SimBase.Document>

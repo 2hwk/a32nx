@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimBase.Document Type="MissionFile" version="1,0" id="Fuel">
+  <Title>FreeFlight</Title>
+  <Filename>Marshaller.spb</Filename>
+  <WorldBase.Flight>
+    <Service.GroundService>
+      <Name>Marshaller</Name>
+      <KeyToStart>
+      </KeyToStart>
+    </Service.GroundService>
+    <SimContain.Container InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+      <SimBase.Descr>Marshaller</SimBase.Descr>
+      <UseRegionContainerType>true</UseRegionContainerType>
+      <WorldBase.IsOnGround>true</WorldBase.IsOnGround>
+      <AIType>Marshaller</AIType>
+    </SimContain.Container>
+    <SimContain.Container InstanceId="{177A3F45-396D-4FA8-BBB6-8E7BEBCFC28D}">
+      <SimBase.Descr>Right Stick</SimBase.Descr>
+      <DontCreateSimSound>true</DontCreateSimSound>
+      <WorldBase.ContainerTitle>Marshaller_Stick</WorldBase.ContainerTitle>
+      <AIType>Linked_Object</AIType>
+      <WorldBase.AttachedWorldObject>
+        <NodeName>Stick_R_Ctrl</NodeName>
+        <ObjectReference id="Marshaller" InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}" />
+      </WorldBase.AttachedWorldObject>
+    </SimContain.Container>
+    <SimContain.Container InstanceId="{277A3F45-396D-4FA8-BBB6-8E7BEBCFC28D}">
+      <SimBase.Descr>Left Stick</SimBase.Descr>
+      <DontCreateSimSound>true</DontCreateSimSound>
+      <WorldBase.ContainerTitle>Marshaller_Stick</WorldBase.ContainerTitle>
+      <AIType>Linked_Object</AIType>
+      <WorldBase.AttachedWorldObject>
+        <NodeName>Stick_L_Ctrl</NodeName>
+        <ObjectReference id="Marshaller" InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}" />
+      </WorldBase.AttachedWorldObject>
+    </SimContain.Container>
+  </WorldBase.Flight>
+</SimBase.Document>

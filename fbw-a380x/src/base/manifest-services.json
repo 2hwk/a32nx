@@ -1,0 +1,14 @@
+{
+    "creator": "FlyByWire Simulations",
+    "release_notes": {
+        "neutral": {
+            "LastUpdate": "",
+            "OlderHistory": ""
+        }
+    },
+    "title": "FBW Ground Services",
+    "dependencies": [],
+    "content_type": "CORE",
+    "minimum_game_version": "1.29.29",
+    "manufacturer": "FlyByWire"
+}

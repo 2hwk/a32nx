@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimBase.Document Type="MissionFile" version="1,0" id="Fuel">
+  <Title>FreeFlight</Title>
+  <Filename>GroundPowerUnit.spb</Filename>
+  <WorldBase.Flight>
+    <Service.GroundService>
+      <Name>GroundPowerUnit</Name>
+      <States>
+        <State UniqueRefId="{3FEDE4D4-899E-4E6D-9EE7-A6AE472D23A6}">
+          <Name>Loading</Name>
+        </State>
+        <State UniqueRefId="{3FEDE4D4-899E-4E6D-9EE7-A6AE472D23A6}">
+          <Name>Unloading</Name>
+        </State>
+        <State UniqueRefId="{3FEDE4D4-899E-4E6D-9EE7-A6AE472D23A6}">
+          <Name>Finished_Operation</Name>
+        </State>
+      </States>
+    </Service.GroundService>
+    <SimContain.Container InstanceId="{3FEDE4D4-899E-4E6D-9EE7-A6AE472D23A6}">
+      <SimBase.Descr>GroundPowerUnit</SimBase.Descr>
+      <UseRegionContainerType>true</UseRegionContainerType>
+      <WorldBase.IsOnGround>true</WorldBase.IsOnGround>
+      <AIType>GroundPowerUnit</AIType>
+      <AddPilot>
+        <UseRegionContainerType>true</UseRegionContainerType>
+        <AIType>GroundVehicle_Pilot</AIType>
+      </AddPilot>
+    </SimContain.Container>
+  </WorldBase.Flight>
+</SimBase.Document>

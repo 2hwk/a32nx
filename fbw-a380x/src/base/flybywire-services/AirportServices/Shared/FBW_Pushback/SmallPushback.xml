@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimBase.Document Type="MissionFile" version="1,0" id="Fuel">
+  <Title>FreeFlight</Title>
+  <Filename>SmallPushback.spb</Filename>
+  <WorldBase.Flight>
+    <Service.GroundService>
+      <Name>SmallPushback</Name>
+      <States>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Move_Toward_Aircraft</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Play Transition Back To Toward" InstanceId="{10726A3B-F4DC-44D1-9034-D5A385D68097}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Move_Back_To_Parking</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Play Transition Toward to Back" InstanceId="{E9D79ED1-F4B0-444B-9C91-E87B567E99B4}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Sleep</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Play Transition Back To Toward" InstanceId="{10726A3B-F4DC-44D1-9034-D5A385D68097}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+      </States>
+    </Service.GroundService>
+    <SimContain.Container InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+      <SimBase.Descr>SmallPushback</SimBase.Descr>
+      <UseRegionContainerType>true</UseRegionContainerType>
+      <WorldBase.IsOnGround>true</WorldBase.IsOnGround>
+      <AIType>SmallPushBack</AIType>
+    </SimContain.Container>
+    <SimContain.Container InstanceId="{177A3F45-396D-4FA8-BBB6-8E7BEBCFC28D}">
+      <SimBase.Descr>Pilot of SmallPushback</SimBase.Descr>
+      <UseRegionContainerType>true</UseRegionContainerType>
+      <AIType>GroundVehicle_Pilot</AIType>
+      <HumanPilotAI>
+        <HumanPilotType>Pilot</HumanPilotType>
+      </HumanPilotAI>
+      <WorldBase.AttachedWorldObject>
+        <ObjectReference id="SmallPushback" InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}" />
+      </WorldBase.AttachedWorldObject>
+    </SimContain.Container>
+    <SimMission.PlayBlendTreeStateAction InstanceId="{E9D79ED1-F4B0-444B-9C91-E87B567E99B4}">
+      <SimBase.Descr>Play Transition Toward to Back</SimBase.Descr>
+      <BlendTreeStateName>Driving_Caddy_Toward_to_Back</BlendTreeStateName>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{177A3F45-396D-4FA8-BBB6-8E7BEBCFC28D}" id="Pilot of SmallPushback" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.PlayBlendTreeStateAction>
+    <SimMission.PlayBlendTreeStateAction InstanceId="{10726A3B-F4DC-44D1-9034-D5A385D68097}">
+      <SimBase.Descr>Play Transition Back To Toward</SimBase.Descr>
+      <BlendTreeStateName>Driving_Caddy_Back_to_Toward</BlendTreeStateName>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{177A3F45-396D-4FA8-BBB6-8E7BEBCFC28D}" id="Pilot of SmallPushback" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.PlayBlendTreeStateAction>
+  </WorldBase.Flight>
+</SimBase.Document>

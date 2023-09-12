@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimBase.Document Type="MissionFile" version="1,0" id="Fuel">
+  <Title>FreeFlight</Title>
+  <Filename>CateringTruck.spb</Filename>
+  <WorldBase.Flight>
+    <Service.GroundService>
+      <Name>CateringTruck</Name>
+      <States>
+        <State UniqueRefId="{204C2325-A93C-481F-B7AB-CC957C52E692}">
+          <Name>Loading</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Start timer loading" InstanceId="{1489E27F-9D31-44FD-BFF5-30E9A7CF6765}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+        <State UniqueRefId="{204C2325-A93C-481F-B7AB-CC957C52E692}">
+          <Name>Unloading</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Start timer loading" InstanceId="{1489E27F-9D31-44FD-BFF5-30E9A7CF6765}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+        <State UniqueRefId="{204C2325-A93C-481F-B7AB-CC957C52E692}">
+          <Name>Finished_Operation</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Abort timer loading" InstanceId="{30EAF4CF-6CCB-4869-85CA-25E16B0ED037}" />
+            <ObjectReference id="Reset TimerTrigger" InstanceId="{FC072D8F-ACC4-4E8E-9147-43EB01E64333}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+      </States>
+    </Service.GroundService>
+    <SimContain.Container InstanceId="{204C2325-A93C-481F-B7AB-CC957C52E692}">
+      <SimBase.Descr>CateringTruck</SimBase.Descr>
+      <UseRegionContainerType>true</UseRegionContainerType>
+      <WorldBase.IsOnGround>true</WorldBase.IsOnGround>
+      <AIType>CateringTruck</AIType>
+      <AddPilot>
+        <UseRegionContainerType>true</UseRegionContainerType>
+        <AIType>GroundVehicle_Pilot</AIType>
+      </AddPilot>
+    </SimContain.Container>
+    <SimMission.ObjectActivationAction InstanceId="{1489E27F-9D31-44FD-BFF5-30E9A7CF6765}">
+      <SimBase.Descr>Start timer loading</SimBase.Descr>
+      <NewObjectState>true</NewObjectState>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}" id="Time Loading" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.ObjectActivationAction>
+    <SimMission.ObjectActivationAction InstanceId="{30EAF4CF-6CCB-4869-85CA-25E16B0ED037}">
+      <SimBase.Descr>Abort timer loading</SimBase.Descr>
+      <NewObjectState>false</NewObjectState>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}" id="Time Loading" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.ObjectActivationAction>
+    <SimMission.ResetTimerAction InstanceId="{FC072D8F-ACC4-4E8E-9147-43EB01E64333}">
+      <SimBase.Descr>Reset TimerTrigger</SimBase.Descr>
+      <Triggers>
+        <WorldBase.ObjectReference InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}" id="Time Loading" />
+      </Triggers>
+    </SimMission.ResetTimerAction>
+    <SimMission.TimerTrigger InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}">
+      <SimBase.Descr>Time Loading</SimBase.Descr>
+      <WorldBase.Activated>false</WorldBase.Activated>
+      <OneShot>true</OneShot>
+      <OnScreenTimer>true</OnScreenTimer>
+      <StartTime>0.000</StartTime>
+      <StopTime>30.000</StopTime>
+      <Actions>
+        <WorldBase.ObjectReference id="SendMessageToAIAction Catering is finished" InstanceId="{28DE0754-24FB-4B2F-91E8-B628570B32D5}" />
+      </Actions>
+    </SimMission.TimerTrigger>
+    <SimMission.SendMessageToAIAction InstanceId="{28DE0754-24FB-4B2F-91E8-B628570B32D5}">
+      <SimBase.Descr>SendMessageToAIAction Catering is finished</SimBase.Descr>
+      <Name>FINISHED_OPERATION</Name>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference id="CateringTruck" InstanceId="{204C2325-A93C-481F-B7AB-CC957C52E692}" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.SendMessageToAIAction>
+  </WorldBase.Flight>
+</SimBase.Document>

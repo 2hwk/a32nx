@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimBase.Document Type="MissionFile" version="1,0" id="Fuel">
+  <Title>FreeFlight</Title>
+  <Filename>BaggageLoader.spb</Filename>
+  <WorldBase.Flight>
+    <Service.GroundService>
+      <Name>BaggageLoader</Name>
+      <States>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Sleep</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Move_Toward_Aircraft</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Before_Reaching_Aircraft</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Reached_Aircraft</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Loading</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Start timer failsafe loading" InstanceId="{1489E27F-9D31-44FD-BFF5-30E9A7CF6765}" />
+            <ObjectReference id="Start Loading" InstanceId="{C5518E61-7F5C-4EB7-B0BF-D6B2A7501D32}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Unloading</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Start timer failsafe loading" InstanceId="{1489E27F-9D31-44FD-BFF5-30E9A7CF6765}" />
+            <ObjectReference id="Start Loading" InstanceId="{C5518E61-7F5C-4EB7-B0BF-D6B2A7501D32}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Finished_Operation</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Abort timers" InstanceId="{D25748CB-5C94-407A-A9B3-DE4F8F07ED4B}" />
+            <ObjectReference id="Deactivate timers" InstanceId="{30EAF4CF-6CCB-4869-85CA-25E16B0ED037}" />
+            <ObjectReference id="Reset TimerTrigger" InstanceId="{FC072D8F-ACC4-4E8E-9147-43EB01E64333}" />
+            <ObjectReference id="Abort load baggage animation for baggage loader" InstanceId="{C785FC5C-81E4-4B5E-8FB8-0EBD4C37186C}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Before_Leaving_Aircraft</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Move_Back_To_Parking</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{112B21E3-033F-415C-9E97-E9DBD1FD4D3B}">
+          <Name>Sleep</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{112B21E3-033F-415C-9E97-E9DBD1FD4D3B}">
+          <Name>Move_Toward_Aircraft</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{112B21E3-033F-415C-9E97-E9DBD1FD4D3B}">
+          <Name>Before_Reaching_Aircraft</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{112B21E3-033F-415C-9E97-E9DBD1FD4D3B}">
+          <Name>Reached_Aircraft</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{112B21E3-033F-415C-9E97-E9DBD1FD4D3B}">
+          <Name>Loading</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{112B21E3-033F-415C-9E97-E9DBD1FD4D3B}">
+          <Name>Finished_Operation</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{112B21E3-033F-415C-9E97-E9DBD1FD4D3B}">
+          <Name>Before_Leaving_Aircraft</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{112B21E3-033F-415C-9E97-E9DBD1FD4D3B}">
+          <Name>Move_Back_To_Parking</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+        <State UniqueRefId="{112B21E3-033F-415C-9E97-E9DBD1FD4D3B}">
+          <Name>Unloading</Name>
+          <WorldBase.ObjectReferenceList />
+        </State>
+      </States>
+    </Service.GroundService>
+    <SimContain.Container InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+      <SimBase.Descr>BaggageLoader</SimBase.Descr>
+      <UseRegionContainerType>true</UseRegionContainerType>
+      <WorldBase.IsOnGround>true</WorldBase.IsOnGround>
+      <AIType>BaggageLoader</AIType>
+      <AddPilot>
+        <UseRegionContainerType>true</UseRegionContainerType>
+        <AIType>GroundVehicle_Pilot</AIType>
+      </AddPilot>
+    </SimContain.Container>
+    <SimContain.Container InstanceId="{112B21E3-033F-415C-9E97-E9DBD1FD4D3B}">
+      <SimBase.Descr>BaggageCart</SimBase.Descr>
+      <UseRegionContainerType>true</UseRegionContainerType>
+      <WorldBase.IsOnGround>true</WorldBase.IsOnGround>
+      <AIType>BaggageCart</AIType>
+      <WorldBase.InitRelativeToWorldObject>
+        <OffsetXYZ>-9.000,0.000,5.000,0.000</OffsetXYZ>
+        <Orientation>0.000,0.000,315.000</Orientation>
+        <ObjectReference id="BaggageLoader" InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}" />
+      </WorldBase.InitRelativeToWorldObject>
+      <AddPilot>
+        <UseRegionContainerType>true</UseRegionContainerType>
+        <AIType>GroundVehicle_Pilot</AIType>
+      </AddPilot>
+    </SimContain.Container>
+    <SimMission.PlayBlendTreeStateAction InstanceId="{0CFC7693-D855-4CB7-9C85-92D5FD9E23E5}">
+      <SimBase.Descr>Play load baggage animation for baggage loader </SimBase.Descr>
+      <Immediate>false</Immediate>
+      <BlendTreeStateName>Load_Baggage</BlendTreeStateName>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}" id="BaggageLoader" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.PlayBlendTreeStateAction>
+    <SimMission.PlayBlendTreeStateAction InstanceId="{C785FC5C-81E4-4B5E-8FB8-0EBD4C37186C}">
+      <SimBase.Descr>Abort load baggage animation for baggage loader </SimBase.Descr>
+      <BlendTreeStateName>Idle</BlendTreeStateName>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}" id="BaggageLoader" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.PlayBlendTreeStateAction>
+    <SimMission.ObjectActivationAction InstanceId="{1489E27F-9D31-44FD-BFF5-30E9A7CF6765}">
+      <SimBase.Descr>Start timer failsafe loading</SimBase.Descr>
+      <NewObjectState>true</NewObjectState>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}" id="Time failsafe Loading" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.ObjectActivationAction>
+    <SimMission.ObjectActivationAction InstanceId="{C5518E61-7F5C-4EB7-B0BF-D6B2A7501D32}">
+      <SimBase.Descr>Start loading</SimBase.Descr>
+      <NewObjectState>true</NewObjectState>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{2C0D0AD3-98C8-4C2F-8AE2-2EC9D3A364DF}" id="Start Baggage Loading and wait end anim" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.ObjectActivationAction>
+    <SimMission.StopObjectActionQueueAction InstanceId="{D25748CB-5C94-407A-A9B3-DE4F8F07ED4B}">
+      <SimBase.Descr>Abort timers</SimBase.Descr>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}" id="Time failsafe Loading" />
+        <ObjectReference InstanceId="{2C0D0AD3-98C8-4C2F-8AE2-2EC9D3A364DF}" id="Start Baggage Loading and wait end anim" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.StopObjectActionQueueAction>
+    <SimMission.ObjectActivationAction InstanceId="{30EAF4CF-6CCB-4869-85CA-25E16B0ED037}">
+      <SimBase.Descr>Deactivate timers</SimBase.Descr>
+      <NewObjectState>false</NewObjectState>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}" id="Time failsafe Loading" />
+        <ObjectReference InstanceId="{2C0D0AD3-98C8-4C2F-8AE2-2EC9D3A364DF}" id="Start Baggage Loading and wait end anim" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.ObjectActivationAction>
+    <SimMission.ResetTimerAction InstanceId="{FC072D8F-ACC4-4E8E-9147-43EB01E64333}">
+      <SimBase.Descr>Reset TimerTrigger</SimBase.Descr>
+      <Triggers>
+        <WorldBase.ObjectReference InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}" id="Time failsafe Loading" />
+        <WorldBase.ObjectReference InstanceId="{2C0D0AD3-98C8-4C2F-8AE2-2EC9D3A364DF}" id="Start Baggage Loading and wait end anim" />
+      </Triggers>
+    </SimMission.ResetTimerAction>
+    <SimMission.TimerTrigger InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}">
+      <SimBase.Descr>Time failsafe Loading</SimBase.Descr>
+      <WorldBase.Activated>false</WorldBase.Activated>
+      <OneShot>true</OneShot>
+      <OnScreenTimer>true</OnScreenTimer>
+      <StartTime>0.000</StartTime>
+      <StopTime>60.000</StopTime>
+      <Actions>
+        <WorldBase.ObjectReference id="SendMessageToAIBaggageLoader_BaggagesLoaded" InstanceId="{28DE0754-24FB-4B2F-91E8-B628570B32D5}" />
+        <WorldBase.ObjectReference id="Play Idle animation for baggage loader" InstanceId="{4ED58B80-0606-4D84-B48C-A10849613517}" />
+      </Actions>
+    </SimMission.TimerTrigger>
+    <SimMission.TimerTrigger InstanceId="{2C0D0AD3-98C8-4C2F-8AE2-2EC9D3A364DF}">
+      <SimBase.Descr>Start Baggage Loading and wait end anim</SimBase.Descr>
+      <WorldBase.Activated>false</WorldBase.Activated>
+      <OneShot>true</OneShot>
+      <OnScreenTimer>true</OnScreenTimer>
+      <StartTime>0.000</StartTime>
+      <StopTime>0.000</StopTime>
+      <Actions>
+        <WorldBase.ObjectReference id="Play load baggage animation for baggage loader" InstanceId="{0CFC7693-D855-4CB7-9C85-92D5FD9E23E5}" />
+        <WorldBase.ObjectReference id="SendMessageToAIBaggageLoader_BaggagesLoaded" InstanceId="{28DE0754-24FB-4B2F-91E8-B628570B32D5}" />
+        <WorldBase.ObjectReference id="Play Idle animation for baggage loader" InstanceId="{4ED58B80-0606-4D84-B48C-A10849613517}" />
+      </Actions>
+    </SimMission.TimerTrigger>
+    <SimMission.SendMessageToAIAction InstanceId="{28DE0754-24FB-4B2F-91E8-B628570B32D5}">
+      <SimBase.Descr>SendMessageToAIAction Baggage loading is done</SimBase.Descr>
+      <Name>FINISHED_OPERATION</Name>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}" id="BaggageLoader" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.SendMessageToAIAction>
+    <SimMission.PlayBlendTreeStateAction InstanceId="{4ED58B80-0606-4D84-B48C-A10849613517}">
+      <SimBase.Descr>Play Idle animation for baggage loader </SimBase.Descr>
+      <BlendTreeStateName>Idle</BlendTreeStateName>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}" id="BaggageLoader" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.PlayBlendTreeStateAction>
+  </WorldBase.Flight>
+</SimBase.Document>

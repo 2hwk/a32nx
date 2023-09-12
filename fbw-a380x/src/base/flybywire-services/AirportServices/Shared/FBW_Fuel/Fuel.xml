@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimBase.Document Type="MissionFile" version="1,0" id="Fuel">
+  <Title>FreeFlight</Title>
+  <Filename>Fuel.spb</Filename>
+  <WorldBase.Flight>
+    <Service.GroundService>
+      <Name>Fuel</Name>
+      <States>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Loading_AI</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Start timer loading AI" InstanceId="{1489E27F-9D31-44FD-BFF5-30E9A7CF6765}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Loading_User</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Start timer loading User" InstanceId="{B6FFB458-6A68-4D2B-984D-641DFC87DE34}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>UserClosedWindowDuringLoading</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Start timer loading short" InstanceId="{4F04057D-02CC-4F86-A595-7E66D995DBEF}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+        <State UniqueRefId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+          <Name>Finished_Operation</Name>
+          <WorldBase.ObjectReferenceList>
+            <ObjectReference id="Abort timer loading" InstanceId="{30EAF4CF-6CCB-4869-85CA-25E16B0ED037}" />
+            <ObjectReference id="Reset TimerTrigger" InstanceId="{FC072D8F-ACC4-4E8E-9147-43EB01E64333}" />
+          </WorldBase.ObjectReferenceList>
+        </State>
+      </States>
+    </Service.GroundService>
+    <SimContain.Container InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}">
+      <SimBase.Descr>Fuel Truck</SimBase.Descr>
+      <UseRegionContainerType>true</UseRegionContainerType>
+      <WorldBase.IsOnGround>true</WorldBase.IsOnGround>
+      <AIType>FuelTruck</AIType>
+      <AddPilot>
+        <UseRegionContainerType>true</UseRegionContainerType>
+        <AIType>GroundVehicle_Pilot</AIType>
+      </AddPilot>
+    </SimContain.Container>
+    <SimMission.ObjectActivationAction InstanceId="{1489E27F-9D31-44FD-BFF5-30E9A7CF6765}">
+      <SimBase.Descr>Start timer loading AI</SimBase.Descr>
+      <NewObjectState>true</NewObjectState>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}" id="Time Loading AI" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.ObjectActivationAction>
+    <SimMission.ObjectActivationAction InstanceId="{B6FFB458-6A68-4D2B-984D-641DFC87DE34}">
+      <SimBase.Descr>Start timer loading User</SimBase.Descr>
+      <NewObjectState>true</NewObjectState>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{96FFBDF3-21AB-41B1-9BB6-706D251FD12D}" id="Time Loading User" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.ObjectActivationAction>
+    <SimMission.ObjectActivationAction InstanceId="{4F04057D-02CC-4F86-A595-7E66D995DBEF}">
+      <SimBase.Descr>Start timer loading short</SimBase.Descr>
+      <NewObjectState>true</NewObjectState>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{24263EE7-F521-4599-82DA-1FD8FA974F63}" id="Time Loading short" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.ObjectActivationAction>
+    <SimMission.ObjectActivationAction InstanceId="{30EAF4CF-6CCB-4869-85CA-25E16B0ED037}">
+      <SimBase.Descr>Abort timer loading</SimBase.Descr>
+      <NewObjectState>false</NewObjectState>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}" id="Time Loading AI" />
+        <ObjectReference InstanceId="{96FFBDF3-21AB-41B1-9BB6-706D251FD12D}" id="Time Loading User" />
+        <ObjectReference InstanceId="{24263EE7-F521-4599-82DA-1FD8FA974F63}" id="Time Loading short" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.ObjectActivationAction>
+    <SimMission.ResetTimerAction InstanceId="{FC072D8F-ACC4-4E8E-9147-43EB01E64333}">
+      <SimBase.Descr>Reset TimerTrigger</SimBase.Descr>
+      <Triggers>
+        <WorldBase.ObjectReference InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}" id="Time Loading AI" />
+        <WorldBase.ObjectReference InstanceId="{96FFBDF3-21AB-41B1-9BB6-706D251FD12D}" id="Time Loading User" />
+        <WorldBase.ObjectReference InstanceId="{24263EE7-F521-4599-82DA-1FD8FA974F63}" id="Time Loading short" />
+      </Triggers>
+    </SimMission.ResetTimerAction>
+    <SimMission.TimerTrigger InstanceId="{7B0E7908-BD60-447E-B68C-1AF0727F099C}">
+      <SimBase.Descr>Time Loading AI</SimBase.Descr>
+      <WorldBase.Activated>false</WorldBase.Activated>
+      <OneShot>true</OneShot>
+      <OnScreenTimer>true</OnScreenTimer>
+      <StartTime>0.000</StartTime>
+      <StopTime>20.000</StopTime>
+      <Actions>
+        <WorldBase.ObjectReference id="SendMessageToAIAction Refueling is finished" InstanceId="{28DE0754-24FB-4B2F-91E8-B628570B32D5}" />
+      </Actions>
+    </SimMission.TimerTrigger>
+    <SimMission.TimerTrigger InstanceId="{96FFBDF3-21AB-41B1-9BB6-706D251FD12D}">
+      <SimBase.Descr>Time Loading User</SimBase.Descr>
+      <WorldBase.Activated>false</WorldBase.Activated>
+      <OneShot>true</OneShot>
+      <OnScreenTimer>true</OnScreenTimer>
+      <StartTime>0.000</StartTime>
+      <StopTime>60.000</StopTime>
+      <Actions>
+        <WorldBase.ObjectReference id="SendMessageToAIAction Refueling is finished" InstanceId="{28DE0754-24FB-4B2F-91E8-B628570B32D5}" />
+      </Actions>
+    </SimMission.TimerTrigger>
+    <SimMission.TimerTrigger InstanceId="{24263EE7-F521-4599-82DA-1FD8FA974F63}">
+      <SimBase.Descr>Time Loading short</SimBase.Descr>
+      <WorldBase.Activated>false</WorldBase.Activated>
+      <OneShot>true</OneShot>
+      <OnScreenTimer>true</OnScreenTimer>
+      <StartTime>0.000</StartTime>
+      <StopTime>5.000</StopTime>
+      <Actions>
+        <WorldBase.ObjectReference id="SendMessageToAIAction Refueling is finished" InstanceId="{28DE0754-24FB-4B2F-91E8-B628570B32D5}" />
+      </Actions>
+    </SimMission.TimerTrigger>
+    <SimMission.SendMessageToAIAction InstanceId="{28DE0754-24FB-4B2F-91E8-B628570B32D5}">
+      <SimBase.Descr>SendMessageToAIAction Refueling is finished</SimBase.Descr>
+      <Name>FINISHED_OPERATION</Name>
+      <WorldBase.ObjectReferenceList>
+        <ObjectReference id="Fuel Truck" InstanceId="{857701B9-C9DA-45F9-82B5-BF62DB755A6A}" />
+      </WorldBase.ObjectReferenceList>
+    </SimMission.SendMessageToAIAction>
+  </WorldBase.Flight>
+</SimBase.Document>
