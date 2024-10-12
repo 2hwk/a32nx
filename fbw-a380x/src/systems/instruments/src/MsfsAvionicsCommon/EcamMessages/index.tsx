@@ -82,8 +82,6 @@ export const EcamMemos: { [n: string]: string } = {
   '242000002': '\x1b<3mRAT OUT',
   '243000001': '\x1b<3mREMOTE C/B CTL ON',
   '000023001': '\x1b<3mMAN LDG ELEV',
-  '000025001': '\x1b<3mFUEL X FEED',
-  '000025002': '\x1b<4mFUEL X FEED',
   '000029001': '\x1b<3mSWITCHG PNL',
   '000035001': '\x1b<2mLAND ASAP',
   '000036001': '\x1b<4mLAND ASAP',

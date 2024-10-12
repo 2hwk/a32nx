@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0
 
 import { EcamMemos } from '../../../instruments/src/MsfsAvionicsCommon/EcamMessages';
-import { MappedSubject, Subject, Subscribable, SubscribableMapFunctions } from '@microsoft/msfs-sdk';
+import { MappedSubject, Subscribable, SubscribableMapFunctions } from '@microsoft/msfs-sdk';
 import { FwsCore } from 'systems-host/systems/FlightWarningSystem/FwsCore';
 
 interface EwdMemoItem {
@@ -169,17 +169,6 @@ export class FwsMemos {
       simVarIsActive: this.fws.manLandingElevation,
       whichCodeToReturn: () => [0],
       codesToReturn: ['000023001'],
-      memoInhibit: () => false,
-      failure: 0,
-      sysPage: -1,
-      side: 'RIGHT',
-    },
-    '0000250': {
-      // FUEL X FEED
-      flightPhaseInhib: [],
-      simVarIsActive: this.fws.fuelXFeedPBOn,
-      whichCodeToReturn: () => [[3, 4, 5].includes(this.fws.fwcFlightPhase.get()) ? 1 : 0],
-      codesToReturn: ['000025001', '000025002'],
       memoInhibit: () => false,
       failure: 0,
       sysPage: -1,
@@ -413,7 +402,7 @@ export class FwsMemos {
     320000001: {
       // AUTO BRK OFF
       flightPhaseInhib: [1, 2, 3, 4, 5, 6, 7, 8, 9, 12],
-      simVarIsActive: Subject.create(false),
+      simVarIsActive: this.fws.autoBrakeOff,
       whichCodeToReturn: () => [0],
       codesToReturn: ['320000001'],
       memoInhibit: () => false,

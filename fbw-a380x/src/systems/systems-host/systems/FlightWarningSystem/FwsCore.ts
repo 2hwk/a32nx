@@ -72,7 +72,7 @@ export class FwsCore implements Instrument {
   private static readonly FWC_STARTUP_TIME = 5000;
 
   /** Time to inhibit SCs after one is trigger in ms */
-  private static readonly AURAL_SC_INHIBIT_TIME = 2000;
+  private static readonly AURAL_SC_INHIBIT_TIME = 5000;
 
   /** The time to play the single chime sound in ms */
   private static readonly AURAL_SC_PLAY_TIME = 500;
@@ -723,25 +723,27 @@ export class FwsCore implements Instrument {
 
   public readonly centerFuelPump1Auto = ConsumerValue.create(null, false);
 
+  public readonly feedTank1Low = Subject.create(false);
+
   public readonly centerFuelPump2Auto = ConsumerValue.create(null, false);
 
-  public readonly centerFuelQuantity = Subject.create(0);
+  public readonly feedTank1LowConfirm = new NXLogicConfirmNode(30, true);
 
-  public readonly fuelXFeedPBOn = Subject.create(false);
+  public readonly feedTank2Low = Subject.create(false);
+
+  public readonly feedTank2LowConfirm = new NXLogicConfirmNode(30, true);
 
   public readonly leftOuterInnerValve = ConsumerSubject.create(null, 0);
 
-  public readonly leftFuelLow = Subject.create(false);
+  public readonly feedTank3Low = Subject.create(false);
 
-  public readonly leftFuelLowConfirm = new NXLogicConfirmNode(30, true);
+  public readonly feedTank3LowConfirm = new NXLogicConfirmNode(30, true);
+
+  public readonly feedTank4Low = Subject.create(false);
 
   public readonly leftFuelPump1Auto = ConsumerValue.create(null, false);
 
   public readonly leftFuelPump2Auto = ConsumerValue.create(null, false);
-
-  public readonly lrTankLow = Subject.create(false);
-
-  public readonly lrTankLowConfirm = new NXLogicConfirmNode(30, true);
 
   public readonly rightOuterInnerValve = ConsumerSubject.create(null, 0);
 
@@ -753,7 +755,26 @@ export class FwsCore implements Instrument {
 
   public readonly rightFuelPump2Auto = ConsumerValue.create(null, false);
 
+  public readonly feedTank4LowConfirm = new NXLogicConfirmNode(30, true);
+
+  public readonly crossFeed1ValveOpen = Subject.create(false);
+  public readonly crossFeed2ValveOpen = Subject.create(false);
+  public readonly crossFeed3ValveOpen = Subject.create(false);
+  public readonly crossFeed4ValveOpen = Subject.create(false);
+  public readonly allCrossFeedValvesOpen = MappedSubject.create(
+    SubscribableMapFunctions.and(),
+    this.crossFeed1ValveOpen,
+    this.crossFeed2ValveOpen,
+    this.crossFeed3ValveOpen,
+    this.crossFeed4ValveOpen,
+  );
+
   public readonly fuelCtrTankModeSelMan = ConsumerValue.create(null, false);
+
+  public readonly fmsZeroFuelWeight = Arinc429Register.empty();
+  public readonly fmsZeroFuelWeightCg = Arinc429Register.empty();
+
+  public readonly fmsZfwOrZfwCgNotSet = Subject.create(false);
 
   /* HYDRAULICS */
 
@@ -1022,6 +1043,10 @@ export class FwsCore implements Instrument {
   private onGroundImmediate = false;
 
   public readonly gearLeverPos = Subject.create(false);
+
+  public readonly autoBrakeDeactivatedNode = new NXLogicTriggeredMonostableNode(8, false); // When ABRK deactivated, emit this for 8 sec
+
+  public readonly autoBrakeOff = Subject.create(false);
 
   /* NAVIGATION */
 
@@ -2048,9 +2073,18 @@ export class FwsCore implements Instrument {
     const adr2Discrete1 = Arinc429Word.fromSimVarValue('L:A32NX_ADIRS_ADR_2_DISCRETE_WORD_1');
     const adr3Discrete1 = Arinc429Word.fromSimVarValue('L:A32NX_ADIRS_ADR_3_DISCRETE_WORD_1');
 
-    this.ir1Fault.set(this.ir1Pitch.isFailureWarning() || this.ir1MaintWord.bitValueOr(9, true));
-    this.ir2Fault.set(this.ir2Pitch.isFailureWarning() || this.ir2MaintWord.bitValueOr(9, true));
-    this.ir3Fault.set(this.ir3Pitch.isFailureWarning() || this.ir3MaintWord.bitValueOr(9, true));
+    this.ir1Fault.set(
+      ![1, 12].includes(this.fwcFlightPhase.get()) &&
+        (this.ir1Pitch.isFailureWarning() || this.ir1MaintWord.bitValueOr(9, true)),
+    );
+    this.ir2Fault.set(
+      ![1, 12].includes(this.fwcFlightPhase.get()) &&
+        (this.ir2Pitch.isFailureWarning() || this.ir2MaintWord.bitValueOr(9, true)),
+    );
+    this.ir3Fault.set(
+      ![1, 12].includes(this.fwcFlightPhase.get()) &&
+        (this.ir3Pitch.isFailureWarning() || this.ir3MaintWord.bitValueOr(9, true)),
+    );
 
     const adr1PressureAltitude = Arinc429Word.fromSimVarValue('L:A32NX_ADIRS_ADR_1_ALTITUDE');
     const adr2PressureAltitude = Arinc429Word.fromSimVarValue('L:A32NX_ADIRS_ADR_2_ALTITUDE');
@@ -2203,6 +2237,11 @@ export class FwsCore implements Instrument {
       (onGroundCount > 2 && !raInvalid) ||
       (onGroundCount > 1 && raInvalid);
     this.aircraftOnGround.set(this.onGroundConf.write(this.onGroundImmediate, deltaTime));
+
+    // AUTO BRAKE OFF
+    this.autoBrakeDeactivatedNode.write(!!SimVar.GetSimVarValue('L:A32NX_AUTOBRAKES_ACTIVE', 'boolean'), deltaTime);
+    this.autoBrakeOff.set(this.autoBrakeDeactivatedNode.read());
+    SimVar.SetSimVarValue('L:A32NX_AUDIO_AUTOBRAKE_OFF', SimVarValueType.Bool, this.autoBrakeOff.get());
 
     // Engine Logic
     this.thrustLeverNotSet.set(this.autothrustLeverWarningFlex.get() || this.autothrustLeverWarningToga.get());
@@ -2547,17 +2586,29 @@ export class FwsCore implements Instrument {
     this.voiceVhf3.set(this.rmp3ActiveMode.get() !== FrequencyMode.Data);
 
     /* FUEL */
-    const fuelGallonsToKg = SimVar.GetSimVarValue('FUEL WEIGHT PER GALLON', 'kilogram');
-    this.centerFuelQuantity.set(SimVar.GetSimVarValue('FUEL TANK CENTER QUANTITY', 'gallons') * fuelGallonsToKg);
-    this.fuelXFeedPBOn.set(SimVar.GetSimVarValue('L:XMLVAR_Momentary_PUSH_OVHD_FUEL_XFEED_Pressed', 'bool'));
+    const feedTank1Low = SimVar.GetSimVarValue('FUELSYSTEM TANK WEIGHT:2', 'kilogram') < 1375;
+    this.feedTank1Low.set(this.feedTank1LowConfirm.write(feedTank1Low, deltaTime));
 
-    const leftInnerFuelQuantity = SimVar.GetSimVarValue('FUEL TANK LEFT MAIN QUANTITY', 'gallons') * fuelGallonsToKg;
-    const rightInnerFuelQuantity = SimVar.GetSimVarValue('FUEL TANK RIGHT MAIN QUANTITY', 'gallons') * fuelGallonsToKg;
-    const leftFuelLow = leftInnerFuelQuantity < 750;
-    const rightFuelLow = rightInnerFuelQuantity < 750;
-    this.lrTankLow.set(this.lrTankLowConfirm.write(leftFuelLow && rightFuelLow, deltaTime));
-    this.leftFuelLow.set(this.leftFuelLowConfirm.write(leftFuelLow && !this.lrTankLow.get(), deltaTime));
-    this.rightFuelLow.set(this.rightFuelLowConfirm.write(rightFuelLow && !this.lrTankLow.get(), deltaTime));
+    const feedTank2Low = SimVar.GetSimVarValue('FUELSYSTEM TANK WEIGHT:5', 'kilogram') < 1375;
+    this.feedTank2Low.set(this.feedTank1LowConfirm.write(feedTank2Low, deltaTime));
+
+    const feedTank3Low = SimVar.GetSimVarValue('FUELSYSTEM TANK WEIGHT:6', 'kilogram') < 1375;
+    this.feedTank3Low.set(this.feedTank1LowConfirm.write(feedTank3Low, deltaTime));
+
+    const feedTank4Low = SimVar.GetSimVarValue('FUELSYSTEM TANK WEIGHT:9', 'kilogram') < 1375;
+    this.feedTank4Low.set(this.feedTank1LowConfirm.write(feedTank4Low, deltaTime));
+
+    this.crossFeed1ValveOpen.set(SimVar.GetSimVarValue('FUELSYSTEM VALVE OPEN:46', 'kilogram') > 0.1);
+    this.crossFeed2ValveOpen.set(SimVar.GetSimVarValue('FUELSYSTEM VALVE OPEN:47', 'kilogram') > 0.1);
+    this.crossFeed3ValveOpen.set(SimVar.GetSimVarValue('FUELSYSTEM VALVE OPEN:48', 'kilogram') > 0.1);
+    this.crossFeed4ValveOpen.set(SimVar.GetSimVarValue('FUELSYSTEM VALVE OPEN:49', 'kilogram') > 0.1);
+
+    this.fmsZeroFuelWeight.setFromSimVar(`L:A32NX_FM${this.fwsNumber}_ZERO_FUEL_WEIGHT`);
+    this.fmsZeroFuelWeightCg.setFromSimVar(`L:A32NX_FM${this.fwsNumber}_ZERO_FUEL_WEIGHT_CG`);
+
+    this.fmsZfwOrZfwCgNotSet.set(
+      this.fmsZeroFuelWeight.isNoComputedData() || this.fmsZeroFuelWeightCg.isNoComputedData(),
+    );
 
     /* F/CTL */
     const fcdc1DiscreteWord1 = Arinc429Word.fromSimVarValue('L:A32NX_FCDC_1_DISCRETE_WORD_1');
