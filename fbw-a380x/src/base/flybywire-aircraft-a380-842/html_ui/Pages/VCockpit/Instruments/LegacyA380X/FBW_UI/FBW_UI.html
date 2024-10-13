@@ -1,0 +1,59 @@
+<script type="text/html" id="AS04F_HMD">
+    <div id="Mainframe">
+        <div>
+            <p>
+                hi
+            </p>
+        </div>
+        <div id="Electricity" state="off">
+            <div class="main-screen hmd-display">
+                <div id="hmd-airspeed"></div>
+                <div id="hmd-vertical-speed"></div>
+                <div id="hmd-altitude">
+                    <span id="hmd-altitude-large"></span>
+                    <span id="hmd-altitude-small"></span>
+                </div>
+                <div id="hmd-altitude-mode"></div>
+
+                <div id="hmd-left-panel">
+                    <div id="hmd-left-panel-col-1">
+                        <div>&alpha;</div>
+                        <div id="hmd-mach-label">M</div>
+                        <div id="hmd-current-g-label">G</div>
+                    </div>
+                    <div id="hmd-left-panel-col-2">
+                        <div id="hmd-aoa-value">4.2</div>
+                        <div id="hmd-mach-value">0.48</div>
+                        <div id="hmd-current-g-value">1.0</div>
+                        <div id="hmd-peak-g-value">8.1</div>
+                    </div>
+                </div>
+                <div id="hmd-right-panel">
+                    <div id="hmd-atc-engaged">ATC</div>
+                </div>
+
+                <div id="hmd-camera-pitch"></div>
+                <div id="hmd-true-heading"></div>
+
+                <svg id="hmd-heading" class="full-screen-hmd-element" width="1024" height="576" viewBox="0 0 1000 562.5" xmlns="http://www.w3.org/2000/svg">
+                    <clipPath id="hmd-heading-clip">
+                        <rect x="240" y="0" width="520" height="125" />
+                    </clipPath>
+
+                    <g id="hmd-heading-tape-group"></g>
+                </svg>
+
+                <svg id="hmd-center-cross" viewBox="0 0 100 100">
+                    <line x1="50" x2="50" y1="0" y2="40" stroke="#00ff00" stroke-width="6"/>
+                    <line x1="50" x2="50" y1="60" y2="100" stroke="#00ff00" stroke-width="6"/>
+                    <line x1="0" x2="40" y1="50" y2="50" stroke="#00ff00" stroke-width="6"/>
+                    <line x1="60" x2="100" y1="50" y2="50" stroke="#00ff00" stroke-width="6"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</script>
+
+<link rel="stylesheet" href="FA18_HMD.css" />
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/LegacyA380X/FBW_UI/FBW_UI.js"></script>
