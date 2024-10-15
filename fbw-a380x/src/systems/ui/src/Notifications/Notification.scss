@@ -3,4 +3,60 @@
 
 $font-file-path: '/Fonts/fbw-a380x';
 
-@import "../../../../../../fbw-common/src/systems/instruments/src/Clock/style.scss";
+  @font-face {
+    font-family: "AirbusChronometer";
+    src: url("#{$font-file-path}/AirbusChronometer.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  svg.powered {
+    opacity: 1;
+    transition: opacity 0.01s linear;
+  }
+
+  svg.unpowered {
+    opacity: 0;
+    transition: opacity 0.01s linear;
+  }
+
+  svg {
+    position: absolute;
+    background: rgba(14, 19, 27, 1);
+  }
+
+  text {
+    font-family: "Arial";
+    alignment-baseline: center;
+  }
+
+  .logo {
+    fill: rgba(0, 224, 254, 1);
+  }
+
+  .day text {
+    fill: rgba(220, 220, 220, 0.85);
+    transition: fill 5s linear;
+  }
+
+  .night text {
+    fill: rgba(220, 220, 220, 0.40);
+    transition: fill 5s linear;
+  }
+
+  .fontBig {
+    font-size: 120px;
+  }
+
+  .fontMedium {
+    font-size: 60px;
+    font-weight: bold;
+  }
+
+  .fontBold {
+    font-weight: bold;
+  }
+
+  .fontSmall {
+    font-size: 30px;
+  }

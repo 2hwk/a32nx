@@ -1,5 +1,5 @@
 import { EventBus, FSComponent, HEventPublisher } from '@microsoft/msfs-sdk';
-import { ClockRoot, ClockSimvarPublisher } from '@flybywiresim/clock';
+import { NotificationsRoot } from '@flybywiresim/notifications';
 
 import './Notification.scss';
 
@@ -8,8 +8,6 @@ class A380X_Notifications extends BaseInstrument {
   private bus: EventBus;
 
   private readonly hEventPublisher: HEventPublisher;
-
-  private simVarPublisher: ClockSimvarPublisher;
 
   /**
    * "mainmenu" = 0
@@ -22,7 +20,6 @@ class A380X_Notifications extends BaseInstrument {
   constructor() {
     super();
     this.bus = new EventBus();
-    this.simVarPublisher = new ClockSimvarPublisher(this.bus);
     this.hEventPublisher = new HEventPublisher(this.bus);
   }
 
@@ -39,23 +36,7 @@ class A380X_Notifications extends BaseInstrument {
 
     this.hEventPublisher.startPublish();
 
-    this.simVarPublisher.subscribe('ltsTest');
-    this.simVarPublisher.subscribe('dcEssIsPowered');
-    this.simVarPublisher.subscribe('dcHot1IsPowered');
-    this.simVarPublisher.subscribe('absTime');
-
-    this.simVarPublisher.subscribe('timeOfDay');
-
-    this.simVarPublisher.subscribe('currentUTC');
-    this.simVarPublisher.subscribe('dayOfMonth');
-    this.simVarPublisher.subscribe('monthOfYear');
-    this.simVarPublisher.subscribe('year');
-
-    this.simVarPublisher.subscribe('elapsedKnobPos');
-
-    this.simVarPublisher.subscribe('dc2IsPowered');
-
-    FSComponent.render(<ClockRoot bus={this.bus} />, document.getElementById('Notifications_CONTENT'));
+    FSComponent.render(<NotificationsRoot bus={this.bus} />, document.getElementById('Notifications_CONTENT'));
 
     // Remove "instrument didn't load" text
     document?.getElementById('Notifications_CONTENT')?.querySelector(':scope > h1')?.remove();
@@ -67,11 +48,11 @@ class A380X_Notifications extends BaseInstrument {
     if (this.gameState !== 3) {
       const gamestate = this.getGameState();
       if (gamestate === 3) {
-        this.simVarPublisher.startPublish();
+        // this.simVarPublisher.startPublish();
       }
       this.gameState = gamestate;
     } else {
-      this.simVarPublisher.onUpdate();
+      // this.simVarPublisher.onUpdate();
     }
   }
 }
