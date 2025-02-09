@@ -1,4 +1,4 @@
-import { EventBus, FSComponent, HEventPublisher } from '@microsoft/msfs-sdk';
+import { ArraySubject, EventBus, FSComponent, GameStateProvider, HEventPublisher, Wait } from '@microsoft/msfs-sdk';
 import { NotificationsRoot } from '@flybywiresim/notifications';
 
 import './Notification.scss';
@@ -8,6 +8,15 @@ class A380X_Notifications extends BaseInstrument {
   private bus: EventBus;
 
   private readonly hEventPublisher: HEventPublisher;
+
+  private readonly guid = `Notifications-${Utils.generateGUID()}`;
+
+  private notifications = ArraySubject.create([
+    {
+      title: 'Paused At Top of Descent',
+      text: 'I am a cool notification',
+    },
+  ]);
 
   /**
    * "mainmenu" = 0
@@ -33,14 +42,31 @@ class A380X_Notifications extends BaseInstrument {
 
   public connectedCallback(): void {
     super.connectedCallback();
-
     this.hEventPublisher.startPublish();
 
-    FSComponent.render(<NotificationsRoot bus={this.bus} />, document.getElementById('Notifications_CONTENT'));
+    Promise.all([Wait.awaitSubscribable(GameStateProvider.get(), (state) => state === GameState.ingame, true)]).then(
+      () => {
+        FSComponent.render(
+          <NotificationsRoot bus={this.bus} notifications={this.notifications} />,
+          document.getElementById('Notifications_CONTENT'),
+        );
+        Coherent.trigger('UNFOCUS_INPUT_FIELD', this.guid);
+      },
+    );
 
     // Remove "instrument didn't load" text
     document?.getElementById('Notifications_CONTENT')?.querySelector(':scope > h1')?.remove();
+    window.addEventListener('keydown', this.pressedAnyKey);
   }
+
+  private pressedAnyKey = (event: KeyboardEvent): void => {
+    console.log('Event detected:', event.type);
+    console.log('Key', event.keyCode);
+    if (event.keyCode === 32) {
+      this.notifications.removeAt(0);
+      console.log(this.notifications.length);
+    }
+  };
 
   public Update(): void {
     super.Update();

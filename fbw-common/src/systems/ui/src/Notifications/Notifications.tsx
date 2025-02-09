@@ -1,47 +1,52 @@
-import { ComponentProps, DisplayComponent, EventBus, FSComponent, VNode } from '@microsoft/msfs-sdk';
+import {
+  ComponentProps,
+  DisplayComponent,
+  EventBus,
+  FSComponent,
+  Subject,
+  SubscribableArray,
+  VNode,
+} from '@microsoft/msfs-sdk';
+import { NotificationElement } from 'ui/src/Notifications/Notification';
 
-interface NotificationProps extends ComponentProps {
+interface NotificationRootProps extends ComponentProps {
   bus: EventBus;
+  notifications: SubscribableArray<{ title: string; text: string }>;
 }
 
-export class NotificationsRoot extends DisplayComponent<NotificationProps> {
+export class NotificationsRoot extends DisplayComponent<NotificationRootProps> {
   private readonly gElementRef = FSComponent.createRef<SVGGElement>();
 
   private readonly svgElementRef = FSComponent.createRef<SVGSVGElement>();
 
+  private readonly bus = this.props.bus;
+
+  private readonly notifications = this.props.notifications;
+
+  private visibilitySub = Subject.create('visible');
+
+  get visible() {
+    return this.visibilitySub.get();
+  }
+
   onAfterRender(node: VNode): void {
     super.onAfterRender(node);
-    window.addEventListener('keydown', this.pressedAnyKey);
   }
-
-  private pressedAnyKey = (event: KeyboardEvent): void => {
-    console.log('Key', event.keyCode);
-  };
 
   render(): VNode {
+    console.log('Rendering notifications');
+    console.log(this.notifications.length);
     return (
-      <svg
-        ref={this.svgElementRef}
-        version="1.1"
-        viewBox="0 0 1024 256"
-        xmlns="http://www.w3.org/2000/svg"
-        class="powered"
-      >
-        <g ref={this.gElementRef} class="day">
-          <path
-            class="logo"
-            d="M105 9H82.12365C77.73225 9 73.69155 11.39865 71.58885 15.2538L39 75.00015C29.16 93.00015 17.60745 99.00015 9 99.00015H87.00015L105 9Z"
-            transform="translate(50, 100)"
-          />
-          <text x="250" y="135" class="fontMedium fontBold">
-            {'Paused At Top of Descent'}
-          </text>
-          <text x="250" y="175" class="fontSmall">
-            {'VSCode is just better'}
-          </text>
-        </g>
-      </svg>
+      this.notifications.length && (
+        <NotificationElement
+          x={50}
+          y={100}
+          title={this.notifications.get(0).title}
+          text={this.notifications.get(0).text}
+          visible={this.visibilitySub}
+        />
+      )
     );
   }
-  //  CringtelliJ is cringe
+  // CringtelliJ is cringe
 }
